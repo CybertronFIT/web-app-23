@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "./ui/button";
+import { buttonVariants } from "./ui/Button";
 
 interface NavbarProps {}
 
@@ -14,18 +14,28 @@ const Navbar: FC<NavbarProps> = ({}) => {
             <span className="ml-3 text-xl">CyberTron</span>
           </a>
           <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <a className="mr-5 hover:text-white">About</a>
-            <a className="mr-5 hover:text-white">Events</a>
-            <a className="mr-5 hover:text-white">Team</a>
+            <Link className={"mx-2 hover:text-cyan-500"} href={""}>About</Link>
+            <Link className={"mx-2 hover:text-cyan-500"} href={""}>Events</Link>
+            <Link className={"mx-2 hover:text-cyan-500"} href={""}>Team</Link>
+            <Link className={"mx-2 hover:text-cyan-500"} href={""}>Contact</Link>
           </nav>
           <Link
             href={"/sign-in"}
             className={cn(
-              buttonVariants({ size: "lg" }),
-              "text-lg font-semibold tracking-tighter hidden md:flex"
+              buttonVariants(),
+              "text-lg tracking-tighter hidden md:flex bg-transparent hover:border-2 hover:border-cyan-400 hover:text-cyan-400"
             )}
           >
-            Join Us
+            Sign In
+          </Link>
+          <Link
+            href={"/sign-up"}
+            className={cn(
+              buttonVariants(),
+              "text-lg tracking-tighter hidden md:flex hover:shadow-lg hover:shadow-cyan-300"
+            )}
+          >
+            Sign Up
           </Link>
         </div>
       </div>

@@ -2,13 +2,9 @@ import Navbar from "@/components/Navbar";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Audiowide } from "next/font/google";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
+const inter = Audiowide({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "CyberTron' 23",
@@ -25,12 +21,12 @@ export default function RootLayout({
       lang="en"
       className={cn(
         "bg-background text-foreground antialiased dark",
-        inter.variable
+        inter.className
       )}
     >
       <body
         suppressHydrationWarning={true}
-        className="min-h-screen bg-[#537CD4] scroll-smooth antialiased"
+        className="min-h-screen bg-black scroll-smooth antialiased"
       >
         <Navbar />
         <div className="pt-20">{children}</div>
