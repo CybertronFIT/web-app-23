@@ -12,7 +12,7 @@ const About = () => {
       setCurrentImage((currentImage + 1) % Images.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [currentImage]);
+  }, [currentImage, Images.length]);
 
   return (
     <section

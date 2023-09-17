@@ -7,7 +7,7 @@ const Hero = () => {
      className="min-h-screen text-center pb-24">
       <div className="backdrop-blur-[4px]">
       <div className="mb-24 pt-[15%] px-[20%]">
-        <h1 id="Hero-h1" className="text-8xl font-bold text-shadow-cyan">CYBERTRON' 23</h1>
+        <h1 id="Hero-h1" className="text-8xl font-bold text-shadow-cyan">CYBERTRON&apos; 23</h1>
         <p className="mt-12 text-cyan-200/30 text-2xl tracking-widest">
         <span className="text-white">Summer Version</span> Coming In...
         </p>
