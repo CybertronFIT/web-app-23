@@ -4,13 +4,13 @@ interface HeroProps {}
 
 const Hero: FC<HeroProps> = ({}) => {
   return (
-    <div className="min-h-screen text-center ">
-      <div className="my-auto mx-auto py-[15%] px-[25%]">
-        <h1 className="text-6xl font-bold">CYBERTRON' 23</h1>
-        <p className="mt-12">
-          An Initiative by the Department of Computer Science and Engineering
-          (Internet of Things and Cyber Security including Blockchain
-          Technology)
+    <div
+    id="hero"
+     className="min-h-screen text-center">
+      <div className="my-auto mx-auto py-[15%] px-[20%] backdrop-blur-[3px] min-h-screen">
+        <h1 id="Hero-h1" className="text-8xl font-bold text-shadow-cyan">CYBERTRON' 23</h1>
+        <p className="mt-12 text-cyan-200/80 text-2xl tracking-widest">
+        <span className="text-white">Summer Version</span> | Winter Version
         </p>
       </div>
     </div>

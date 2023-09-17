@@ -82,3 +82,51 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(8 145 178);
 }
+
+
+
+/* ====================== BODY ============================ */
+
+/* Define the keyframes for the blinking animation */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65)), url(/backgrounds/hero.jpg);
+  /* background-image: url(); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Apply the blinking animation to the h1 element */
+#Hero-h1 {
+  /* color: rgb(124, 241, 241);  */
+  color: white;
+  animation: blink 4s infinite; /* Apply the blink animation infinitely */
+}
+
+#about-div {
+  box-shadow: 0px -250px 140px 120px white;
+}
+
+.text-shadow-cyan {
+  text-shadow: 0px 0px 20px rgb(0, 255, 255); /* You can adjust the shadow values as needed */
+}
