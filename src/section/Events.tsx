@@ -1,25 +1,48 @@
 "use client";
-import Cards from "@/components/Cards";
-import { CardType } from "@/lib/cards";
+
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
-const Events = () => {
-  return (
-    <div className="bg-neutral-800">
-      <div className="flex h-48 items-center justify-center">
-        <span className="font-semibold uppercase text-neutral-500">
-          Scroll down
-        </span>
-      </div>
-      <HorizontalScrollCarousel />
-      <div className="flex h-48 items-center justify-center">
-        <span className="font-semibold uppercase text-neutral-500">
-          Scroll up
-        </span>
-      </div>
-    </div>
-  );
+const Cards = [
+  {
+    title: "CyberTron",
+    img: "1",
+    page: "ambuja"
+  },
+  {
+    title: "CyberTron",
+    img: "2",
+    page: ""
+  },
+  {
+    title: "CyberTron",
+    img: "3",
+    page: ""
+  },
+  {
+    title: "CyberTron",
+    img: "4",
+    page: ""
+  },
+  {
+    title: "CyberTron",
+    img: "5",
+    page: ""
+  },
+  {
+    title: "CyberTron",
+    img: "6",
+    page: ""
+  },
+];
+
+type CardProps = {
+  card: {
+    title: string;
+    img: string;
+    page: string;
+  };
 };
 
 const HorizontalScrollCarousel = () => {
@@ -31,11 +54,11 @@ const HorizontalScrollCarousel = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
+    <section ref={targetRef} className="relative h-[300vh]">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-4">
-          {cards.map((card) => {
-            return <Card card={card} key={card.id} />;
+        <motion.div style={{ x }} className="flex gap-6">
+          {Cards.map((card, index) => {
+            return <Card card={card} key={index} />;
           })}
         </motion.div>
       </div>
@@ -43,26 +66,35 @@ const HorizontalScrollCarousel = () => {
   );
 };
 
-const Card = ({ card }) => {
+const Card = ({ card }: CardProps) => {
   return (
-    <div
-      key={card.id}
-      className="group relative h-[450px] w-[450px] overflow-hidden bg-neutral-200"
+    <Link href={`/events/${card.page}`}>
+    <div className="group relative h-80 w-60 md:h-[450px] md:w-[350px] overflow-hidden bg-neutral-200 rounded-2xl"
     >
       <div
         style={{
-          backgroundImage: `url(${card.url})`,
+          backgroundImage: `url(backgrounds/events/event_${card.img}.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
         className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
       ></div>
-      <div className="absolute inset-0 z-10 grid place-content-center">
-        <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
+      <div className="absolute inset-0 z-10 grid place-content-center pt-24">
+        <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 px-16 text-2xl md:text-4xl font-black uppercase text-white backdrop-blur-lg">
           {card.title}
         </p>
       </div>
     </div>
+    </Link>
+  );
+};
+
+const Events = () => {
+  return (
+    <section className="md:px-28 text-center mt-24 md:mt-56" id="events">
+      <h2 className="text-4xl md:text-6xl 2xl:text-7xl -mb-24 md:-mb-16 text-cyan-500">Events</h2>
+      <HorizontalScrollCarousel />
+    </section>
   );
 };
 

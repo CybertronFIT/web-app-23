@@ -4,12 +4,10 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/Dropdown-menu";
 import { AlignJustify } from "lucide-react";
-import { Button } from "./ui/Button";
+import { Button } from "./Button";
 import CustomMobLink from "./CustomMobLink";
 
 interface MobileNavProps {
@@ -30,7 +28,6 @@ const MobileNav: React.FC<MobileNavProps> = ({
           size="icon"
         >
           <AlignJustify className="h-[1.2rem] w-[1.2rem] " />
-          <span className="sr-only">Navigation Menu</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="mt-7">
@@ -46,24 +43,16 @@ const MobileNav: React.FC<MobileNavProps> = ({
           <CustomMobLink
             activeSection={activeSection}
             handleSetActive={handleSetActive}
-            title="Experience"
-            to="experience"
+            title="Events"
+            to="events"
           />
         </DropdownMenuItem>
         <DropdownMenuItem>
           <CustomMobLink
             activeSection={activeSection}
             handleSetActive={handleSetActive}
-            title="Works"
-            to="works"
-          />
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <CustomMobLink
-            activeSection={activeSection}
-            handleSetActive={handleSetActive}
-            title="Contact"
-            to="contact"
+            title="Team"
+            to="team"
           />
         </DropdownMenuItem>
       </DropdownMenuContent>

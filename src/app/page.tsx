@@ -1,16 +1,15 @@
 import About from "@/section/About";
 import Events from "@/section/Events";
 import Hero from "@/section/Hero";
-import Teams from "@/section/Teams";
-import Image from "next/image";
+import Team from "@/section/Team";
 
 export default function Home() {
   return (
     <main className="min-h-[400vh]">
-      {/* <Hero />
+      <Hero />
       <About />
       <Events />
-      <Teams /> */}
+      <Team />
     </main>
   );
 }

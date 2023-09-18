@@ -2,10 +2,8 @@
 
 import { FC, useState } from "react";
 import { Link } from "react-scroll";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "./ui/Button";
-import MobileNav from "./MobileNav";
-import CustomLink from "./CustomLink";
+import MobileNav from "./ui/MobileNav";
+import CustomLink from "./ui/CustomLink";
 
 interface NavbarProps {}
 
@@ -18,7 +16,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
 
   return (
     <header className="fixed w-full top-0 inset-x-0 h-fit z-50 p-4">
-      <div className="px-5 py-4 md:px-10 md:py-6 bg-white/10 backdrop-blur-lg  h-full  max-w-7xl rounded-3xl mx-auto flex items-center justify-between">
+      <div className="px-5 py-4 md:px-10 md:py-8 bg-white/10 backdrop-blur-lg h-full max-w-7xl rounded-2xl mx-auto flex items-center justify-between">
         <div className="w-full flex items-center justify-between">
           <Link
             activeClass="active"
@@ -30,7 +28,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
               activeSection === "home"
             } cursor-pointer flex title-font  font-bold items-center  mb-0`}
           >
-            <span className="ml-3 text-xl" aria-label="Home">
+            <span className="ml-3 text-lg md:text-2xl" aria-label="Home">
               Cybertron
             </span>
           </Link>
@@ -44,20 +42,14 @@ const Navbar: FC<NavbarProps> = ({}) => {
             <CustomLink
               activeSection={activeSection}
               handleSetActive={handleSetActive}
-              title="Experience"
-              to="experience"
+              title="Events"
+              to="events"
             />
             <CustomLink
               activeSection={activeSection}
               handleSetActive={handleSetActive}
-              title="Works"
-              to="works"
-            />
-            <CustomLink
-              activeSection={activeSection}
-              handleSetActive={handleSetActive}
-              title="Contact"
-              to="contact"
+              title="Team"
+              to="team"
             />
           </nav>
           <MobileNav

@@ -1,3 +1,4 @@
+import { Footer } from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
@@ -7,8 +8,8 @@ import { Audiowide } from "next/font/google";
 const inter = Audiowide({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CyberTron' 23",
-  description: "Official website of CyberTron FIT",
+  title: "Cybertron' 23",
+  description: "Official Website of Cybertron FIT",
 };
 
 export default function RootLayout({
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -16,31 +16,35 @@ const About = () => {
 
   return (
     <section
-      id="about-div"
-      className="md:px-56 pt-24 bg-gradient-to-b text-center from-cyan-500  to-black min-h-screen h-auto z-2 grid place-content-center w-full -mt-[22rem]"
-      style={{
-        clipPath:
-          "polygon(26% 29%, 77% 29%, 100% 0, 100% 80%, 100% 100%, 0 100%, 0% 80%, 0 0)",
-      }}
+      id="about"
+      className="text-center min-h-screen w-full -mt-[22rem] bg-gradient-to-b from-transparent via-cyan-600 to-transparent md:via-transparent"
     >
-      <div className="md:px-72 mt-64">
-        <h2 className="text-6xl mt-16">About</h2>
-        <p className="mt-16 text-white">
-          An Initiative by the Department of Computer Science and Engineering
-          (Internet of Things and Cyber Security including Blockchain
-          Technology)
-        </p>
-      </div>
-      <div className="relative flex flex-col justify-center items-center mt-32 h-96 pb-8">
-        <div className="h-full grid justify-between">
-          <Image
-            className="animate-[bounce_3s_infinite]"
-            src={`/backgrounds/about/about-${currentImage + 1}.png`}
-            width="350"
-            height="220"
-            alt={"Event Image"}
-          />
-          <h3 className="text-2xl bottom-0 h-8">{Images[currentImage]}</h3>
+      <div
+      className="mt-16 md:mt-4 md:bg-gradient-to-b md:from-cyan-400 md:to-black w-full grid place-content-center"
+        style={{
+          clipPath:
+            "polygon(26% 29%, 77% 29%, 100% 0, 100% 80%, 100% 100%, 0 100%, 0% 80%, 0 0)",
+        }}
+      >
+        <div className="md:px-72 mt-72">
+          <h2 className="text-4xl md:text-6xl 2xl:text-7xl mt-16">About</h2>
+          <p className="mt-16 text-white px-12 md:px-24 2xl:px-80 text-sm md:text-lg">
+            An Initiative by the Department of Computer Science and Engineering
+            (Internet of Things and Cyber Security including Blockchain
+            Technology)
+          </p>
+        </div>
+        <div className=" flex flex-col justify-center items-center mt-32 h-96 pb-8">
+          <div className="h-full flex flex-col gap-6">
+            <Image
+              className="animate-[bounce_3s_infinite] w-56 md:w-full"
+              src={`/backgrounds/about/about-${currentImage + 1}.png`}
+              width="350"
+              height="220"
+              alt={"Event Image"}
+            />
+            <h3 className="text-xl md:text-2xl bottom-0 h-8">{Images[currentImage]}</h3>
+          </div>
         </div>
       </div>
     </section>
