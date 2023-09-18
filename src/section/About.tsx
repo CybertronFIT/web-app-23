@@ -17,13 +17,13 @@ const About = () => {
   return (
     <section
       id="about-div"
-      className="px-56 bg-gradient-to-b text-center from-cyan-300 via-cyan-700 to-black min-h-screen z-2 grid place-content-center w-full -mt-72"
+      className="md:px-56 pt-24 bg-gradient-to-b text-center from-cyan-500  to-black min-h-screen h-auto z-2 grid place-content-center w-full -mt-[22rem]"
       style={{
         clipPath:
           "polygon(26% 29%, 77% 29%, 100% 0, 100% 80%, 100% 100%, 0 100%, 0% 80%, 0 0)",
       }}
     >
-      <div className="px-72 mt-72">
+      <div className="md:px-72 mt-64">
         <h2 className="text-6xl mt-16">About</h2>
         <p className="mt-16 text-white">
           An Initiative by the Department of Computer Science and Engineering
@@ -31,16 +31,16 @@ const About = () => {
           Technology)
         </p>
       </div>
-      <div className="flex justify-center mt-32">
-        <div>
+      <div className="relative flex flex-col justify-center items-center mt-32 h-96 pb-8">
+        <div className="h-full grid justify-between">
           <Image
             className="animate-[bounce_3s_infinite]"
             src={`/backgrounds/about/about-${currentImage + 1}.png`}
             width="350"
-            height="350"
-            alt={"Image"}
+            height="220"
+            alt={"Event Image"}
           />
-          <h3 className="text-2xl mt-8">{Images[currentImage]}</h3>
+          <h3 className="text-2xl bottom-0 h-8">{Images[currentImage]}</h3>
         </div>
       </div>
     </section>

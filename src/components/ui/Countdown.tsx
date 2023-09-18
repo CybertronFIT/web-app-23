@@ -13,6 +13,7 @@ const Countdown = () => {
         { unit: "Days", value: 0 },
         { unit: "Hours", value: 0 },
         { unit: "Minutes", value: 0 },
+        { unit: "Seconds", value: 0 },
       ];
     }
 
@@ -23,11 +24,15 @@ const Countdown = () => {
     const minutes = Math.floor(
       (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
     );
+    const seconds = Math.floor(
+      (timeDifference % (1000 * 60)) / 1000
+    );
 
     return [
       { unit: "Days", value: days },
       { unit: "Hours", value: hours },
       { unit: "Minutes", value: minutes },
+      { unit: "Seconds", value: seconds },
     ];
   };
 
@@ -42,19 +47,19 @@ const Countdown = () => {
   }, [calculateTimeLeft]);
 
   return (
-    <div className="circular-countdown flex flex-row justify-center items-center">
+    <div className="circular-countdown flex flex-col md:flex-row justify-center items-center">
       {timeLeft.map((time) => (
         <div
           key={time.unit}
-          className="relative m-4 bg-transparent backdrop-blur-lg h-52 w-52 flex place-content-center py-14"
+          className="relative md:m-4 bg-transparent backdrop-blur-lg flex w-32 md:w-44 place-content-center p-6 md:py-14"
           style={{
             clipPath:
               "polygon(30% 20%, 50% 0, 70% 20%, 70% 45%, 90% 60%, 95% 85%, 70% 95%, 50% 80%, 30% 95%, 5% 85%, 10% 60%, 30% 45%)",
           }}
         >
-          <div className="px-2 h-auto flex flex-col justify-center items-center text-black bg-[#06b6d4] shadow-[0px_4px_25px_25px_#06b6d4]">
-            <p className="text-3xl font-extrabold">{time.value}</p>
-            <p className="font-bold text-xl">{time.unit}</p>
+          <div className="px-2 h-auto flex flex-col justify-center items-center text bg-[#06b6d4] shadow-[0px_4px_25px_25px_#06b6d4]">
+            <p className="text-3xl ">{time.value}</p>
+            <p className=" text-xl">{time.unit}</p>
           </div>
         </div>
       ))}

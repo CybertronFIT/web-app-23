@@ -29,7 +29,7 @@ export default function RootLayout({
         className="min-h-screen bg-black scroll-smooth antialiased"
       >
         <Navbar />
-        <div>{children}</div>
+        {children}
       </body>
     </html>
   );
