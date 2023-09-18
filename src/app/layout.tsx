@@ -19,6 +19,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning={true}
       className={cn(
         "bg-background text-foreground antialiased dark",
         inter.className

@@ -1,42 +1,69 @@
-import { FC } from "react";
-import Link from "next/link";
+"use client";
+
+import { FC, useState } from "react";
+import { Link } from "react-scroll";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/Button";
+import MobileNav from "./MobileNav";
+import CustomLink from "./CustomLink";
 
 interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = ({}) => {
+  const [activeSection, setActiveSection] = useState("");
+
+  const handleSetActive = (to: string) => {
+    setActiveSection(to);
+  };
+
   return (
     <header className="fixed w-full top-0 inset-x-0 h-fit z-50 p-4">
-      <div className="px-10 py-6 bg-white/10 backdrop-blur-lg  h-full  max-w-7xl rounded-3xl mx-auto flex items-center justify-between">
-        <div className="w-full flex items-center justify-between gap-4">
-          <a className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-            <span className="ml-3 text-xl">CyberTron</span>
-          </a>
-          <nav className="md:ml-auto md:mr-auto flex flex-wrap gap-4 items-center text-base justify-center">
-            <Link className={"mx-2 hover:text-cyan-500"} href={""}>About</Link>
-            <Link className={"mx-2 hover:text-cyan-500"} href={""}>Events</Link>
-            <Link className={"mx-2 hover:text-cyan-500"} href={""}>Team</Link>
-            <Link className={"mx-2 hover:text-cyan-500"} href={""}>Contact</Link>
+      <div className="px-5 py-4 md:px-10 md:py-6 bg-white/10 backdrop-blur-lg  h-full  max-w-7xl rounded-3xl mx-auto flex items-center justify-between">
+        <div className="w-full flex items-center justify-between">
+          <Link
+            activeClass="active"
+            to="home"
+            spy={true}
+            smooth={true}
+            onSetActive={handleSetActive}
+            className={`${
+              activeSection === "home"
+            } cursor-pointer flex title-font  font-bold items-center  mb-0`}
+          >
+            <span className="ml-3 text-xl" aria-label="Home">
+              Cybertron
+            </span>
+          </Link>
+          <nav className="hidden md:flex gap-4">
+            <CustomLink
+              activeSection={activeSection}
+              handleSetActive={handleSetActive}
+              title="About"
+              to="about"
+            />
+            <CustomLink
+              activeSection={activeSection}
+              handleSetActive={handleSetActive}
+              title="Experience"
+              to="experience"
+            />
+            <CustomLink
+              activeSection={activeSection}
+              handleSetActive={handleSetActive}
+              title="Works"
+              to="works"
+            />
+            <CustomLink
+              activeSection={activeSection}
+              handleSetActive={handleSetActive}
+              title="Contact"
+              to="contact"
+            />
           </nav>
-          <Link
-            href={"/sign-in"}
-            className={cn(
-              buttonVariants(),
-              "text-lg tracking-tighter hidden md:flex bg-transparent hover:border-2 hover:border-cyan-400 hover:text-cyan-400"
-            )}
-          >
-            Sign In
-          </Link>
-          <Link
-            href={"/sign-up"}
-            className={cn(
-              buttonVariants(),
-              "text-lg tracking-tighter hidden md:flex hover:shadow-lg hover:shadow-cyan-300"
-            )}
-          >
-            Sign Up
-          </Link>
+          <MobileNav
+            activeSection={activeSection}
+            handleSetActive={handleSetActive}
+          />
         </div>
       </div>
     </header>

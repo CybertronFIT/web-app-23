@@ -24,9 +24,7 @@ const Countdown = () => {
     const minutes = Math.floor(
       (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
     );
-    const seconds = Math.floor(
-      (timeDifference % (1000 * 60)) / 1000
-    );
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
     return [
       { unit: "Days", value: days },
