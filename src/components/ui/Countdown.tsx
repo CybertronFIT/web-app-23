@@ -47,12 +47,11 @@ const Countdown = () => {
   }, [calculateTimeLeft]);
 
   return (
-    // <div className="circular-countdown flex flex-col md:flex-row justify-center items-center">
-    <div className="z-10 circular-countdown grid grid-cols-2 md:grid-cols-4 place-content-center items-center px-12 md:px-64 2xl:px-80">
+    <div className="grid grid-cols-2 md:grid-cols-4 place-content-center items-center px-12 md:px-72 2xl:px-96">
       {timeLeft.map((time, index) => (
         <div
           key={index}
-          className="z-20 mx-auto md:my-4 bg-transparent backdrop-blur-lg flex w-32 md:w-44 place-content-center p-6 py-8 md:py-14"
+          className="mx-auto md:my-4 bg-transparent backdrop-blur-lg flex w-32 md:w-44 place-content-center p-6 py-8 md:py-14"
           style={{
             clipPath:
               "polygon(30% 20%, 50% 0, 70% 20%, 70% 45%, 90% 60%, 95% 85%, 70% 95%, 50% 80%, 30% 95%, 5% 85%, 10% 60%, 30% 45%)",

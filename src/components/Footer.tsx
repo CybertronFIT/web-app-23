@@ -1,14 +1,15 @@
+import Link from "next/link";
 import React from "react";
 
 export const Footer = () => {
   return (
     <footer className="text-gray-400 bg-transparent backdrop-blur-lg body-font">
-      <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+      <div className="container px-16 md:px-36 2xl:px-16 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
           <span className="ml-3 text-xl text-cyan-400">Cybertron</span>
         </a>
         <p className="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
-          © 2023 Cybertron — <span className="text-cyan-600">FIT</span>
+          © 2023 Cybertron — <Link href={"https://github.com/CybertronFIT"} className="text-cyan-600">FIT</Link>
           
         </p>
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">

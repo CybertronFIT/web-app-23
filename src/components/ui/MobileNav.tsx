@@ -35,6 +35,14 @@ const MobileNav: React.FC<MobileNavProps> = ({
           <CustomMobLink
             activeSection={activeSection}
             handleSetActive={handleSetActive}
+            title="Home"
+            to="hero"
+          />
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <CustomMobLink
+            activeSection={activeSection}
+            handleSetActive={handleSetActive}
             title="About"
             to="about"
           />

@@ -69,7 +69,7 @@ const HorizontalScrollCarousel = () => {
 const Card = ({ card }: CardProps) => {
   return (
     <Link href={`/events/${card.page}`}>
-    <div className="group relative h-80 w-60 md:h-[450px] md:w-[350px] overflow-hidden bg-neutral-200 rounded-2xl"
+    <div className="group relative h-80 w-60 md:h-[350px] md:w-[260px] 2xl:h-[450px] 2xl:w-[350px] overflow-hidden bg-neutral-200 rounded-2xl"
     >
       <div
         style={{
@@ -92,7 +92,7 @@ const Card = ({ card }: CardProps) => {
 const Events = () => {
   return (
     <section className="md:px-28 text-center mt-24 md:mt-56" id="events">
-      <h2 className="text-4xl md:text-6xl 2xl:text-7xl -mb-24 md:-mb-16 text-cyan-500">Events</h2>
+      <h2 className="text-4xl md:text-6xl 2xl:text-7xl -mb-24 md:mb-14 2xl:-mb-16 text-cyan-200">Events</h2>
       <HorizontalScrollCarousel />
     </section>
   );

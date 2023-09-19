@@ -126,3 +126,7 @@
 .text-shadow-cyan {
   text-shadow: 0px 0px 20px rgb(0, 255, 255); /* You can adjust the shadow values as needed */
 }
+
+h2 {
+  text-shadow: 0px 0px 25px cyan;
+}

@@ -15,19 +15,21 @@ const About = () => {
   }, [currentImage, Images.length]);
 
   return (
-    <section
-      id="about"
-      className="text-center min-h-screen w-full -mt-[22rem] bg-gradient-to-b from-transparent via-cyan-600 to-transparent md:via-transparent"
-    >
+    <section className="text-center min-h-screen w-full -mt-[22rem] bg-gradient-to-b from-transparent via-cyan-600 to-transparent md:via-transparent">
       <div
-      className="mt-16 md:mt-4 md:bg-gradient-to-b md:from-cyan-400 md:to-black w-full grid place-content-center"
+        className="mt-16 md:mt-4 md:bg-gradient-to-b md:from-cyan-400 md:to-black w-full grid place-content-center"
         style={{
           clipPath:
             "polygon(26% 29%, 77% 29%, 100% 0, 100% 80%, 100% 100%, 0 100%, 0% 80%, 0 0)",
         }}
       >
-        <div className="md:px-72 mt-72">
-          <h2 className="text-4xl md:text-6xl 2xl:text-7xl mt-16">About</h2>
+        <div id="about" className="md:px-72 mt-72">
+          <h2
+            
+            className="text-4xl md:text-6xl 2xl:text-7xl mt-16 md:mt-32"
+          >
+            About
+          </h2>
           <p className="mt-16 text-white px-12 md:px-24 2xl:px-80 text-sm md:text-lg">
             An Initiative by the Department of Computer Science and Engineering
             (Internet of Things and Cyber Security including Blockchain
@@ -43,7 +45,9 @@ const About = () => {
               height="220"
               alt={"Event Image"}
             />
-            <h3 className="text-xl md:text-2xl bottom-0 h-8">{Images[currentImage]}</h3>
+            <h3 className="text-xl md:text-2xl bottom-0 h-8">
+              {Images[currentImage]}
+            </h3>
           </div>
         </div>
       </div>
