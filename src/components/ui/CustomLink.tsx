@@ -22,8 +22,8 @@ const CustomLink: FC<CustomLinkProps> = ({
       smooth={true}
       onSetActive={handleSetActive}
       className={`${
-        activeSection === to ? "text-cyan-500 scale-110" : "text-gray-300"
-      } cursor-pointer mr-5 hover:text-cyan-500 hover:scale-110 text-lg`}
+        activeSection === to ? "text-orange-400 scale-110" : "text-gray-300"
+      } cursor-pointer mr-5 hover:text-orange-400 hover:scale-110 text-lg`}
     >
       {title}
     </Link>

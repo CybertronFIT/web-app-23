@@ -34,7 +34,7 @@
     --card-foreground: 0 0% 95%;
     --popover: 0 0% 9%;
     --popover-foreground: 0 0% 95%;
-    --primary: 262, 100%, 50%, 1;
+    --primary: 39, 100%, 50%, 1;
     --primary-foreground: 144.9 80.4% 10%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -74,13 +74,13 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(34 211 238);
+  background: orange;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(8 145 178);
+  background: rgb(240, 190, 99);
 }
 
 
@@ -110,7 +110,7 @@
 }
 
 #hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65)), url(/backgrounds/hero.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65)), url(/backgrounds/hero-1.jpg);
   /* background-image: url(); */
   background-repeat: no-repeat;
   background-size: cover;
@@ -123,10 +123,14 @@
   animation: blink 4s infinite; /* Apply the blink animation infinitely */
 }
 
+#footer-head {
+  text-shadow: 0px 0px 10px #ffb429;
+}
+
 .text-shadow-cyan {
-  text-shadow: 0px 0px 20px rgb(0, 255, 255); /* You can adjust the shadow values as needed */
+  text-shadow: 0px 0px 20px orange; /* You can adjust the shadow values as needed */
 }
 
 h2 {
-  text-shadow: 0px 0px 25px cyan;
+  text-shadow: 0px 0px 25px orange;
 }

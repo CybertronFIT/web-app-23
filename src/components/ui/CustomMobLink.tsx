@@ -22,7 +22,7 @@ const CustomMobLink: FC<CustomMobLinkProps> = ({
       smooth={true}
       onSetActive={handleSetActive}
       className={`${
-        activeSection === to ? "text-cyan-500" : "text-gray-300"
+        activeSection === to ? "text-orange-400" : "text-gray-300"
       }  mr-5 `}
     >
       {title}

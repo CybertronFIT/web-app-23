@@ -57,7 +57,7 @@ const Countdown = () => {
               "polygon(30% 20%, 50% 0, 70% 20%, 70% 45%, 90% 60%, 95% 85%, 70% 95%, 50% 80%, 30% 95%, 5% 85%, 10% 60%, 30% 45%)",
           }}
         >
-          <div className="px-1 h-auto flex flex-col justify-center items-center text-black bg-[#6cdef1] shadow-[0px_4px_10px_15px_#6cdef1] md:shadow-[0px_4px_25px_25px_#6cdef1]">
+          <div className="px-1 h-auto flex flex-col justify-center items-center text-black bg-[#ffb429] shadow-[0px_4px_10px_15px_#ffb429] md:shadow-[0px_4px_25px_25px_#ffb429]">
             <p className="text-2xl md:text-3xl font-semibold md:font-extrabold">{time.value}</p>
             <p className="md:text-xl md:font-bold">{time.unit}</p>
           </div>

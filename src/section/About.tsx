@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const About = () => {
-  const Images = ["Coding", "Projection", "Gaming", "Hacking"];
+  const Images = ["Coding (Winter Version)", "Project Display (Winter Version)", "Gaming", "Hacking (Winter Version)"];
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
@@ -15,9 +15,9 @@ const About = () => {
   }, [currentImage, Images.length]);
 
   return (
-    <section className="text-center min-h-screen w-full -mt-[22rem] bg-gradient-to-b from-transparent via-cyan-600 to-transparent md:via-transparent">
+    <section className="text-center min-h-screen w-full -mt-[22rem] bg-gradient-to-b from-transparent via-orange-400 to-transparent md:via-transparent">
       <div
-        className="mt-16 md:mt-4 md:bg-gradient-to-b md:from-cyan-400 md:to-black w-full grid place-content-center"
+        className="mt-16 md:mt-4 md:bg-gradient-to-b md:from-orange-400 md:to-black w-full grid place-content-center"
         style={{
           clipPath:
             "polygon(26% 29%, 77% 29%, 100% 0, 100% 80%, 100% 100%, 0 100%, 0% 80%, 0 0)",
