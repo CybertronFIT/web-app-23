@@ -119,8 +119,8 @@ const page = () => {
             Contact Details:
           </h2>
 
-          {contacts.map((contact) => (
-            <div className="flex items-center gap-x-6 my-4">
+          {contacts.map((contact, index) => (
+            <div key={index} className="flex items-center gap-x-6 my-4">
               <img className="h-12 rounded-full" src={contact.img} alt="" />
               <div>
                 <h4 className="text-base md:font-semibold leading-7 tracking-tight">

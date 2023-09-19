@@ -1,5 +1,6 @@
 
 import React from "react";
+import Image from "next/image";
 import { faculties, members } from "@/components/info/Objects";
 
 const team = [
@@ -59,7 +60,7 @@ const Team = () => {
           {faculties.map((person) => (
             <li key={person.name}>
               <div className="flex items-center gap-x-6">
-                <img
+                <Image
                   className="h-16 w-16 rounded-full"
                   src={person.img}
                   alt={person.name}
@@ -98,7 +99,7 @@ const Team = () => {
           {team.map((person) => (
             <li key={person.name}>
               <div className="flex items-center gap-x-6">
-                <img
+                <Image
                   className="h-16 w-16 rounded-full"
                   src={person.image}
                   alt={person.name}
