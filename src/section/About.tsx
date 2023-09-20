@@ -4,7 +4,15 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const About = () => {
-  const Images = ["Coding (Winter Version)", "Project Display (Winter Version)", "Gaming", "Hacking (Winter Version)"];
+  const Images = [
+    "Coding (Winter Version)",
+    "Project Display (Winter Version)",
+    "Gaming",
+    "Hacking (Winter Version)",
+    "Chess",
+    "Content Writing",
+    "Quiz",
+  ];
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
@@ -24,10 +32,7 @@ const About = () => {
         }}
       >
         <div id="about" className="md:px-72 mt-72">
-          <h2
-            
-            className="text-4xl md:text-6xl 2xl:text-7xl mt-16 md:mt-32"
-          >
+          <h2 className="text-4xl md:text-6xl 2xl:text-7xl mt-16 md:mt-32">
             About
           </h2>
           <p className="mt-16 text-white px-12 md:px-24 2xl:px-80 text-sm md:text-lg">
@@ -39,13 +44,13 @@ const About = () => {
         <div className=" flex flex-col justify-center items-center mt-32 h-96 pb-8">
           <div className="h-full flex flex-col gap-6">
             <Image
-              className="animate-[bounce_3s_infinite] w-56 md:w-full"
+              className="animate-[bounce_3s_infinite] w-56 2xl:w-full mx-auto"
               src={`/backgrounds/about/about-${currentImage + 1}.png`}
               width="350"
               height="220"
               alt={"Event Image"}
             />
-            <h3 className="text-xl md:text-2xl bottom-0 h-8">
+            <h3 className="text-xl md:text-xl 2xl:text-2xl bottom-0 h-8 px-24">
               {Images[currentImage]}
             </h3>
           </div>

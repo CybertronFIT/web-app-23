@@ -6,33 +6,43 @@ import { faculties, members } from "@/components/info/Objects";
 const team = [
   {
     name: members[6].name,
-    role: "Coordinator | Core",
+    role: "Coordinator",
     image: members[6].img,
   },
   {
     name: members[3].name,
-    role: "Coordinator | Core",
+    role: "Coordinator",
     image: members[3].img,
   },
   {
     name: members[9].name,
-    role: "Core Member",
+    role: "Design Head",
     image: members[9].img,
   },
   {
     name: members[11].name,
-    role: "Core Member",
+    role: "Design Head",
     image: members[11].img,
   },
   {
     name: members[0].name,
-    role: "Core Member",
+    role: "Design Head",
     image: members[0].img,
   },
   {
     name: members[8].name,
-    role: "Core Member",
+    role: "Design Head",
     image: members[8].img,
+  },
+  {
+    name: members[4].name,
+    role: "Design Head",
+    image: members[4].img,
+  },
+  {
+    name: members[13].name,
+    role: "Design Head",
+    image: members[13].img,
   },
 ];
 
@@ -64,6 +74,8 @@ const Team = () => {
                   className="h-16 w-16 rounded-full"
                   src={person.img}
                   alt={person.name}
+                  height={100}
+                  width={100}
                 />
                 <div>
                   <h4 className="text-base md:font-semibold leading-7 tracking-tight">
@@ -103,6 +115,8 @@ const Team = () => {
                   className="h-16 w-16 rounded-full"
                   src={person.image}
                   alt={person.name}
+                  height={100}
+                  width={100}
                 />
                 <div>
                   <h4 className="text-base md:font-semibold leading-7 tracking-tight">

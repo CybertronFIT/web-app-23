@@ -47,8 +47,12 @@ const Card = ({ card }: CardProps) => {
         ></div>
         <div className="absolute inset-0 z-10 grid place-content-center pt-24">
           <div className="bg-gradient-to-br from-white/20 to-white/0 p-6 md:p-8 px-2 w-60 md:w-[260px] 2xl:w-[350px] uppercase text-white bg-black/50 backdrop-blur-lg">
-            <h4 className="text-xl md:text-2xl 2xl:text-4xl font-bold">{card.title}</h4>
-            <p className="text-sm md:text-lg 2xl:text-xl text-orange-400">Click to View</p>
+            <h4 className="text-xl md:text-2xl 2xl:text-4xl font-bold">
+              {card.title}
+            </h4>
+            <p className="text-sm md:text-lg 2xl:text-xl text-orange-400">
+              Click to View
+            </p>
           </div>
         </div>
       </div>
@@ -64,6 +68,12 @@ const Events = () => {
       </h2>
       {/* <h3 className="text-orange-500/30">For this Summer version</h3> */}
       <HorizontalScrollCarousel />
+      <Link
+        className="mx-auto p-4 text-black bg-orange-400 border-2 border-orange-500 shadow-lg hover:text-white shadow-orange-500 rounded-xl"
+        href="/events"
+      >
+        Read Rules
+      </Link>
     </section>
   );
 };

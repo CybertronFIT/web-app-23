@@ -5,19 +5,9 @@ import { members } from "@/components/info/Objects";
 
 const contacts = [
   {
-    name: members[4].name,
-    mobile: members[4].mobile,
-    img: members[4].img,
-  },
-  {
-    name: members[3].name,
-    mobile: members[3].mobile,
-    img: members[3].img,
-  },
-  {
-    name: members[1].name,
-    mobile: members[1].mobile,
-    img: members[1].img,
+    name: members[6].name,
+    mobile: members[6].mobile,
+    img: members[6].img,
   },
 ];
 
@@ -29,7 +19,7 @@ const page = () => {
     >
       <section className="backdrop-blur-sm px-8 py-6 rounded-2xl mt-20 md:mt-16">
         <h1 className="text-2xl md:text-4xl 2xl:text-6xl mt-8 md:mt-12 text-orange-400 text-center">
-          Quizzard - Quiz Contest
+          Graphitrix - Poster Making Contest
         </h1>
         <div className="my-16 md:my-24 md:px-44 text-sm md:text-xl 2xl:text-2xl">
           <h3 className="my-2">
@@ -48,21 +38,27 @@ const page = () => {
             <span className="text-orange-200 text-base md:text-2xl 2xl:text-4xl">
               Venue:
             </span>{" "}
-            Seminar Hall, FIT campus
+            FIT campus
           </h3>
 
-          <h3 className="my-2">
-            <span className="text-orange-200 text-base md:text-2xl 2xl:text-4xl">
-              Team Size:
-            </span>{" "}
-            2 - 4 Participants
-          </h3>
           <h2 className="my-4 md:my-8">
             <span className="text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
               Registration Fee:
             </span>{" "}
-            ₹50/-
+            ₹30/-
           </h2>
+          <h3 className="my-2">
+            <span className="text-orange-200 text-base md:text-2xl 2xl:text-4xl">
+              Time Limit:
+            </span>{" "}
+            90 Minutes
+          </h3>
+          <h3 className="my-2">
+            <span className="text-orange-200 text-base md:text-2xl 2xl:text-4xl">
+              Team Size:
+            </span>{" "}
+            1 Participant
+          </h3>
         </div>
         <div className="md:px-44 text-sm md:text-xl 2xl:text-2xl">
           <h2 className="my-4 md:my-8 text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
@@ -71,48 +67,56 @@ const page = () => {
 
           <ul className="list-disc text-sm md:text-lg 2xl:text-xl">
             <li className="my-2">
-              Participants can register themselves in a team of TWO-FOUR members
-              (A group should not exceed{" "}
-              <span className="text-red-600">FOUR members</span>)
+              Only art paper will be provided for competitors by the
+              coordinators.
             </li>
             <li className="my-2">
-              One person cannot register in multiple teams or else those teams
-              will be <span className="text-red-600">disqualified</span>.
+              All additional required art supplies, such as pens, pencils,
+              erasers, paints, paintbrushes, markers, drawing boards, etc.,
+              should be <span className="text-red-600">brought by competitors.</span>
             </li>
             <li className="my-2">
-              The quiz will be based on the following topics:
-              <ul className="list-decimal list-inside text-blue-400">
-                <li className="my-2">Coding problems</li>
-                <li className="my-2">Basic electronics</li>
-                <li className="my-2">Basic cybersecurity</li>
-                <li className="my-2">Quantitative problems</li>
-              </ul>
+              It is highly forbidden for participants to bring any type of image
+              to the event, and doing so will result in their <span className="text-red-600">automatic
+              disqualification.</span>
             </li>
             <li className="my-2">
-              There may be{" "}
-              <span className="text-red-600">negative markings</span> for wrong
-              answers
+              It is not permitted to use a stencil in any way.
             </li>
             <li className="my-2">
-              All teams must coordinate with the event coordinators{" "}
-              <span className="text-red-600">present on the spot</span>
+              The subject matter will be provided on the spot.
             </li>
-            <li className="my-2 ">
-              Failing to comply with rules may result in{" "}
-              <span className="text-red-600">consequences</span> such as
-              disqualification from events, removal from the premises, or other
-              appropriate actions as determined by event organizers and
-              authorities.
+          </ul>
+          <h2 className="my-4 md:my-8 text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
+            Judgement Criteria:
+          </h2>
+          <ul className="2xl:text-xl">
+            <li className="list-disc text-sm md:text-lg my-2">
+              Creativity and Originality of the message and visual elements.
+            </li>
+            <li className="list-disc text-sm md:text-lg my-2">
+              The use of innovative techniques or concepts that set the poster
+              apart.
+            </li>
+            <li className="list-disc text-sm md:text-lg my-2">
+              Relevance to the Theme and the poster&apos;s ability to convey its
+              message clearly and concisely.
+            </li>
+            <li className="list-disc text-sm md:text-lg my-2">
+              Consideration of the target audience and how effectively the
+              poster engages them.
+            </li>
+            <li className="list-disc text-sm md:text-lg my-2">
+              Neatness and presentation quality.
             </li>
           </ul>
           <h2 className="my-4 md:my-8 text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
             Restrictions:
           </h2>
-          <ul className="2xl:text-xl">
+          <ul>
             <li className="list-disc text-sm md:text-lg">
               Any explicit controversial content or any form of content that
-              could be offensive to any community will lead to{" "}
-              <span className="text-red-600">disqualification</span>.
+              could be offensive to any community will lead to <span className="text-red-600">disqualification.</span>
             </li>
           </ul>
 
@@ -138,7 +142,7 @@ const page = () => {
       <div className="text-center my-4 md:my-8">
         <Link
           className="mx-auto p-4 text-black bg-orange-400 border-2 border-orange-500 shadow-lg hover:text-white shadow-orange-500 rounded-xl"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeaJPfNQjm9ml4bp2Z3xSBLdgTyQU82Nf4Y1DW9kWDwFmbRZQ/viewform?usp=sf_link"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSd23ZerUOaDOHEtOc4UyqFzCJfxxPxHV1yYWIBoLb6Gy5N1KA/viewform"
         >
           Register Now
         </Link>

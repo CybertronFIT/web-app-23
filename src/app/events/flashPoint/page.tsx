@@ -5,19 +5,19 @@ import { members } from "@/components/info/Objects";
 
 const contacts = [
   {
-    name: members[4].name,
-    mobile: members[4].mobile,
-    img: members[4].img,
+    name: members[7].name,
+    mobile: members[7].mobile,
+    img: members[7].img,
   },
   {
-    name: members[3].name,
-    mobile: members[3].mobile,
-    img: members[3].img,
+    name: members[8].name,
+    mobile: members[8].mobile,
+    img: members[8].img,
   },
   {
-    name: members[1].name,
-    mobile: members[1].mobile,
-    img: members[1].img,
+    name: members[13].name,
+    mobile: members[13].mobile,
+    img: members[13].img,
   },
 ];
 
@@ -29,39 +29,39 @@ const page = () => {
     >
       <section className="backdrop-blur-sm px-8 py-6 rounded-2xl mt-20 md:mt-16">
         <h1 className="text-2xl md:text-4xl 2xl:text-6xl mt-8 md:mt-12 text-orange-400 text-center">
-          Quizzard - Quiz Contest
+          FlashPoint (Valorant)
         </h1>
         <div className="my-16 md:my-24 md:px-44 text-sm md:text-xl 2xl:text-2xl">
           <h3 className="my-2">
             <span className="text-orange-200 text-base md:text-2xl 2xl:text-4xl">
               Event Date:
             </span>{" "}
-            26th September
+            25th September
           </h3>
           <h3 className="my-2">
             <span className="text-orange-200 text-base md:text-2xl 2xl:text-4xl">
               Mode of conduction:
             </span>{" "}
-            Offline
+            Online
           </h3>
           <h3 className="my-2">
             <span className="text-orange-200 text-base md:text-2xl 2xl:text-4xl">
-              Venue:
+              Last date of registration:
             </span>{" "}
-            Seminar Hall, FIT campus
+            24th September within 11:00am
           </h3>
 
           <h3 className="my-2">
             <span className="text-orange-200 text-base md:text-2xl 2xl:text-4xl">
               Team Size:
             </span>{" "}
-            2 - 4 Participants
+            5 Participants (MAX)
           </h3>
           <h2 className="my-4 md:my-8">
             <span className="text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
               Registration Fee:
             </span>{" "}
-            ₹50/-
+            ₹200/- per team
           </h2>
         </div>
         <div className="md:px-44 text-sm md:text-xl 2xl:text-2xl">
@@ -69,50 +69,49 @@ const page = () => {
             Rules:
           </h2>
 
-          <ul className="list-disc text-sm md:text-lg 2xl:text-xl">
+          <ul className="list-disc text-sm md:text-lg  2xl:text-xl">
             <li className="my-2">
-              Participants can register themselves in a team of TWO-FOUR members
-              (A group should not exceed{" "}
-              <span className="text-red-600">FOUR members</span>)
+              The gaming portal will be open the{" "}
+              <span className="text-red-600"> whole day</span>.
             </li>
             <li className="my-2">
-              One person cannot register in multiple teams or else those teams
-              will be <span className="text-red-600">disqualified</span>.
+              Participants can register themselves in a team of{" "}
+              <span className="text-red-600">FIVE members.</span>. (Make a team
+              on your own)
             </li>
             <li className="my-2">
-              The quiz will be based on the following topics:
-              <ul className="list-decimal list-inside text-blue-400">
-                <li className="my-2">Coding problems</li>
-                <li className="my-2">Basic electronics</li>
-                <li className="my-2">Basic cybersecurity</li>
-                <li className="my-2">Quantitative problems</li>
-              </ul>
+              <span className="text-red-600">Only the team leader</span> must
+              register his/her team via the given registration link.
             </li>
             <li className="my-2">
-              There may be{" "}
-              <span className="text-red-600">negative markings</span> for wrong
-              answers
+              Payment should be done{" "}
+              <span className="text-red-600">before 24th September</span> via
+              UPI.
             </li>
             <li className="my-2">
-              All teams must coordinate with the event coordinators{" "}
-              <span className="text-red-600">present on the spot</span>
+              The time slots will be allotted to the respective teams
+              beforehand, the teams must be ready at least{" "}
+              <span className="text-red-600">15 minutes beforehand.</span>
             </li>
             <li className="my-2 ">
-              Failing to comply with rules may result in{" "}
-              <span className="text-red-600">consequences</span> such as
-              disqualification from events, removal from the premises, or other
-              appropriate actions as determined by event organizers and
-              authorities.
+              The matches will be decided based on the number of players
+              (unrated/spike rush/swift play).
+            </li>
+            <li className="my-2 ">
+              No hacks, no emulator players are allowed otherwise Team will be
+              disqualified.
             </li>
           </ul>
           <h2 className="my-4 md:my-8 text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
             Restrictions:
           </h2>
-          <ul className="2xl:text-xl">
+          <ul className=" 2xl:text-xl">
             <li className="list-disc text-sm md:text-lg">
-              Any explicit controversial content or any form of content that
-              could be offensive to any community will lead to{" "}
-              <span className="text-red-600">disqualification</span>.
+              All teams must coordinate with the event coordinators present on
+              the spot. Failing to comply with rules may result in{" "}
+              <span className="text-red-600">consequences</span> such as
+              disqualification from events, or other appropriate actions as
+              determined by event organizers and authorities.
             </li>
           </ul>
 
@@ -138,7 +137,7 @@ const page = () => {
       <div className="text-center my-4 md:my-8">
         <Link
           className="mx-auto p-4 text-black bg-orange-400 border-2 border-orange-500 shadow-lg hover:text-white shadow-orange-500 rounded-xl"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeaJPfNQjm9ml4bp2Z3xSBLdgTyQU82Nf4Y1DW9kWDwFmbRZQ/viewform?usp=sf_link"
+          href="https://docs.google.com/forms/u/1/d/e/1FAIpQLSeDU-XAsHJ83LLLPjnrv96q1MwDp16eqCGyELbuYyDafSh5vw/viewform?usp=sf_link"
         >
           Register Now
         </Link>

@@ -5,19 +5,19 @@ import { members } from "@/components/info/Objects";
 
 const contacts = [
   {
-    name: members[4].name,
-    mobile: members[4].mobile,
-    img: members[4].img,
+    name: members[0].name,
+    mobile: members[0].mobile,
+    img: members[0].img,
   },
   {
-    name: members[3].name,
-    mobile: members[3].mobile,
-    img: members[3].img,
+    name: members[9].name,
+    mobile: members[9].mobile,
+    img: members[9].img,
   },
   {
-    name: members[1].name,
-    mobile: members[1].mobile,
-    img: members[1].img,
+    name: members[10].name,
+    mobile: members[10].mobile,
+    img: members[10].img,
   },
 ];
 
@@ -29,7 +29,7 @@ const page = () => {
     >
       <section className="backdrop-blur-sm px-8 py-6 rounded-2xl mt-20 md:mt-16">
         <h1 className="text-2xl md:text-4xl 2xl:text-6xl mt-8 md:mt-12 text-orange-400 text-center">
-          Quizzard - Quiz Contest
+          Gunsmith Glory (Call of Duty Mobile)
         </h1>
         <div className="my-16 md:my-24 md:px-44 text-sm md:text-xl 2xl:text-2xl">
           <h3 className="my-2">
@@ -40,79 +40,49 @@ const page = () => {
           </h3>
           <h3 className="my-2">
             <span className="text-orange-200 text-base md:text-2xl 2xl:text-4xl">
-              Mode of conduction:
+              Mode of Conduction:
             </span>{" "}
             Offline
           </h3>
           <h3 className="my-2">
             <span className="text-orange-200 text-base md:text-2xl 2xl:text-4xl">
-              Venue:
+              Game Mode:
             </span>{" "}
-            Seminar Hall, FIT campus
+            Multiplayer
           </h3>
-
           <h3 className="my-2">
             <span className="text-orange-200 text-base md:text-2xl 2xl:text-4xl">
               Team Size:
             </span>{" "}
-            2 - 4 Participants
+            4 to 5 Players (MAX)
           </h3>
           <h2 className="my-4 md:my-8">
             <span className="text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
               Registration Fee:
             </span>{" "}
-            ₹50/-
+            ₹100/- per team
           </h2>
         </div>
         <div className="md:px-44 text-sm md:text-xl 2xl:text-2xl">
           <h2 className="my-4 md:my-8 text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
             Rules:
           </h2>
-
-          <ul className="list-disc text-sm md:text-lg 2xl:text-xl">
-            <li className="my-2">
-              Participants can register themselves in a team of TWO-FOUR members
-              (A group should not exceed{" "}
-              <span className="text-red-600">FOUR members</span>)
-            </li>
-            <li className="my-2">
-              One person cannot register in multiple teams or else those teams
-              will be <span className="text-red-600">disqualified</span>.
-            </li>
-            <li className="my-2">
-              The quiz will be based on the following topics:
-              <ul className="list-decimal list-inside text-blue-400">
-                <li className="my-2">Coding problems</li>
-                <li className="my-2">Basic electronics</li>
-                <li className="my-2">Basic cybersecurity</li>
-                <li className="my-2">Quantitative problems</li>
-              </ul>
-            </li>
-            <li className="my-2">
-              There may be{" "}
-              <span className="text-red-600">negative markings</span> for wrong
-              answers
-            </li>
-            <li className="my-2">
-              All teams must coordinate with the event coordinators{" "}
-              <span className="text-red-600">present on the spot</span>
-            </li>
-            <li className="my-2 ">
-              Failing to comply with rules may result in{" "}
-              <span className="text-red-600">consequences</span> such as
-              disqualification from events, removal from the premises, or other
-              appropriate actions as determined by event organizers and
-              authorities.
-            </li>
-          </ul>
-          <h2 className="my-4 md:my-8 text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
-            Restrictions:
-          </h2>
           <ul className="2xl:text-xl">
-            <li className="list-disc text-sm md:text-lg">
-              Any explicit controversial content or any form of content that
-              could be offensive to any community will lead to{" "}
-              <span className="text-red-600">disqualification</span>.
+            <li className="list-disc text-sm md:text-lg my-2">
+              Any of the team members have to make a custom room for the match.
+            </li>
+            <li className="list-disc text-sm md:text-lg my-2">
+              A team of 4 or 5 members will be playing in a custom room.
+            </li>
+            <li className="list-disc text-sm md:text-lg my-2">
+              No hacks, No Custom Crosshair Otherwise team <span className="text-red-600">will be disqualified.</span>
+            </li>
+            <li className="list-disc text-sm md:text-lg my-2">
+              No Controller players Allowed Otherwise team <span className="text-red-600">will be disqualified.</span>
+            </li>
+
+            <li className="list-disc text-sm md:text-lg my-2">
+              Players has to use their own internet connection
             </li>
           </ul>
 
@@ -138,7 +108,7 @@ const page = () => {
       <div className="text-center my-4 md:my-8">
         <Link
           className="mx-auto p-4 text-black bg-orange-400 border-2 border-orange-500 shadow-lg hover:text-white shadow-orange-500 rounded-xl"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeaJPfNQjm9ml4bp2Z3xSBLdgTyQU82Nf4Y1DW9kWDwFmbRZQ/viewform?usp=sf_link"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSd5XsAOCV4WU6BeHjQGrz9jslS2THSO2wi8vUKpbIGY5hm2BQ/viewform"
         >
           Register Now
         </Link>
