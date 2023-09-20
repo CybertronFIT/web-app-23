@@ -49,7 +49,7 @@ export const faculties = [
   {
     name: "Tanusree Chatterjee",
     role: "Head of Department",
-    img: "/backgrounds/faculties/tanusree.jpg",
+    img: "/backgrounds/faculties/tanusree.webp",
   },
 
   {
@@ -61,7 +61,7 @@ export const faculties = [
   {
     name: "Samiran Basak",
     role: "Coordinator",
-    img: "/backgrounds/faculties/samiran.jpg",
+    img: "/backgrounds/faculties/samiran.webp",
   },
   {
     name: "Sanjoy Banerjee",
@@ -152,6 +152,7 @@ export const members = [
     name: "Shibasish Dalui",
     roll: 13,
     img: "/backgrounds/team/shibasish.webp",
+    mobile: "+91 9875511365",
   },
   {
     name: "Abhishek Vishwakarma",

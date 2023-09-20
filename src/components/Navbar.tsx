@@ -26,7 +26,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
             onSetActive={handleSetActive}
             className={`${
               activeSection === "home"
-            } cursor-pointer flex title-font  font-bold items-center  mb-0`}
+            } cursor-pointer flex title-font md:font-bold items-center  mb-0`}
           >
             <span className="ml-3 text-lg md:text-2xl" aria-label="Home">
               Cybertron

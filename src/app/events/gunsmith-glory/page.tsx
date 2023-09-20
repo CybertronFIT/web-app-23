@@ -21,13 +21,19 @@ const contacts = [
   },
 ];
 
+const style = {
+  background: "linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65)), url(/backgrounds/events/gunsmith-glory.webp)",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover"
+}
+
 const page = () => {
   return (
     <main
-      id="hero"
+      style={style}
       className="min-h-screen p-4 py-8 md:p-24 2xl:px-56 text-left"
     >
-      <section className="backdrop-blur-sm px-8 py-6 rounded-2xl mt-20 md:mt-16">
+      <section className="backdrop-blur-md px-8 py-6 rounded-2xl mt-20 md:mt-16">
         <h1 className="text-2xl md:text-4xl 2xl:text-6xl mt-8 md:mt-12 text-orange-400 text-center">
           Gunsmith Glory (Call of Duty Mobile)
         </h1>
@@ -105,7 +111,7 @@ const page = () => {
           ))}
         </div>
       </section>
-      <div className="text-center my-4 md:my-8">
+      <div className="text-center my-8 md:my-12">
         <Link
           className="mx-auto p-4 text-black bg-orange-400 border-2 border-orange-500 shadow-lg hover:text-white shadow-orange-500 rounded-xl"
           href="https://docs.google.com/forms/d/e/1FAIpQLSd5XsAOCV4WU6BeHjQGrz9jslS2THSO2wi8vUKpbIGY5hm2BQ/viewform"

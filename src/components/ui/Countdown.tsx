@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import moment from 'moment-timezone';
 
 const Countdown = () => {
   const endDate = moment.tz("2023-09-26T00:00:00", "Asia/Kolkata");
 
-  const calculateTimeLeft = () => {
+  const calculateTimeLeft = useCallback(() => {
     const currentTime = new Date().getTime();
     const timeDifference = endDate.diff(currentTime);
 
@@ -34,7 +34,7 @@ const Countdown = () => {
       { unit: "Minutes", value: minutes },
       { unit: "Seconds", value: seconds },
     ];
-  };
+  }, [endDate]);
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
@@ -45,7 +45,7 @@ const Countdown = () => {
 
     return () => clearInterval(timer);
   }, [calculateTimeLeft]);
-
+  
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 place-content-center items-center px-12 md:px-72 2xl:px-96">
       {timeLeft.map((time, index) => (

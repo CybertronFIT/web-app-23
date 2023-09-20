@@ -9,6 +9,11 @@ const pc = [
     img: members[7].img,
   },
   {
+    name: members[12].name,
+    mobile: members[12].mobile,
+    img: members[12].img,
+  },
+  {
     name: members[8].name,
     mobile: members[8].mobile,
     img: members[8].img,

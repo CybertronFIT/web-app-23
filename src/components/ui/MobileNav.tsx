@@ -6,8 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/Dropdown-menu";
-import { AlignJustify } from "lucide-react";
-import { Button } from "./Button";
+import { Codesandbox } from "lucide-react";
 import CustomMobLink from "./CustomMobLink";
 
 interface MobileNavProps {
@@ -22,13 +21,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          className="ml-2 inline-flex md:hidden"
-          size="icon"
-        >
-          <AlignJustify className="h-[1.2rem] w-[1.2rem] " />
-        </Button>
+        <Codesandbox size={32} strokeWidth={1.25} />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="mt-7">
         <DropdownMenuItem>
