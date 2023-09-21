@@ -21,7 +21,11 @@ const MobileNav: React.FC<MobileNavProps> = ({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Codesandbox size={32} strokeWidth={1.25} />
+        <Codesandbox
+          size={32}
+          strokeWidth={1.25}
+          className="inline-flex md:hidden"
+        />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="mt-7">
         <DropdownMenuItem>

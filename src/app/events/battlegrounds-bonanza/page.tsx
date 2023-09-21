@@ -69,6 +69,12 @@ const page = () => {
             </span>{" "}
             ₹100/- per team
           </h2>
+          <h2 className="my-4 md:my-8">
+            <span className="text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
+              Winner Prize:
+            </span>{" "}
+            ₹150/- per match
+          </h2>
         </div>
         <div className="md:px-44 text-sm md:text-xl 2xl:text-2xl">
           <h2 className="my-4 md:my-8 text-orange-200 text-lg md:text-2xl 2xl:text-4xl">

@@ -49,7 +49,7 @@ const page = () => {
       id="hero"
       className="min-h-screen p-4 py-8 md:p-24 2xl:px-56 text-left"
     >
-      <section className="backdrop-blur-sm px-8 py-6 rounded-2xl mt-20 md:mt-16">
+      <section className="backdrop-blur-md px-8 py-6 rounded-2xl mt-20 md:mt-16">
         <h1 className="text-2xl md:text-4xl 2xl:text-6xl mt-8 md:mt-12 text-orange-400 text-center">
           General Instructions
         </h1>
@@ -179,9 +179,12 @@ const page = () => {
             Rules:
           </h2>
 
-          <ul className="list-disc text-sm md:text-lg 2xl:text-xl">
+          <ul className="list-disc text-sm md:text-lg 2xl:text-xl capitalize">
             <li className="my-4">
               Players From Any Colleges Can Participate in the Gaming Events.
+            </li>
+            <li className="my-4">
+              Atleast Two Players Should Be Present Physically on event Day. Other players can stay online
             </li>
             <li className="my-4">
               You can create & play with your team who belongs to other
@@ -244,7 +247,7 @@ const page = () => {
         </div>
       </section>
 
-      <div className="text-center my-4 md:my-8">
+      <div className="text-center my-8 md:my-12">
         <a
           className="mx-auto p-4 text-black bg-orange-400 border-2 border-orange-500 shadow-lg hover:text-white shadow-orange-500 rounded-xl"
           download

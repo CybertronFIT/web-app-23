@@ -4,6 +4,7 @@ import { FC, useState } from "react";
 import { Link } from "react-scroll";
 import MobileNav from "./ui/MobileNav";
 import CustomLink from "./ui/CustomLink";
+import { Codesandbox } from "lucide-react";
 
 interface NavbarProps {}
 
@@ -18,14 +19,14 @@ const Navbar: FC<NavbarProps> = ({}) => {
     <header className="fixed w-full top-0 inset-x-0 h-fit z-50 p-4 md:px-32">
       <div className="px-5 py-4 md:px-10 md:py-6 2xl:py-8 bg-white/10 backdrop-blur-lg h-full max-w-7xl rounded-2xl mx-auto flex items-center justify-between">
         <div className="w-full flex items-center justify-between">
-          <Link
+          <Link 
             activeClass="active"
-            to="home"
+            to="hero"
             spy={true}
             smooth={true}
             onSetActive={handleSetActive}
             className={`${
-              activeSection === "home"
+              activeSection === "hero"
             } cursor-pointer flex title-font md:font-bold items-center  mb-0`}
           >
             <span className="ml-3 text-lg md:text-2xl" aria-label="Home">
@@ -58,6 +59,11 @@ const Navbar: FC<NavbarProps> = ({}) => {
               to="team"
             />
           </nav>
+          <Codesandbox
+            size={32}
+            strokeWidth={1.25}
+            className="md:inline-flex hidden"
+          />
           <MobileNav
             activeSection={activeSection}
             handleSetActive={handleSetActive}

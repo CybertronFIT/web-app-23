@@ -1,5 +1,4 @@
 import { Footer } from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
@@ -30,7 +29,6 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className="min-h-screen bg-black scroll-smooth antialiased"
       >
-        <Navbar />
         {children}
         <Footer />
       </body>

@@ -12,15 +12,16 @@ const contacts = [
 ];
 
 const style = {
-  background: "linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65)), url(/backgrounds/events/graphitrix.webp)",
+  background:
+    "linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65)), url(/backgrounds/events/graphitrix.webp)",
   backgroundRepeat: "no-repeat",
-  backgroundSize: "cover"
-}
+  backgroundSize: "cover",
+};
 
 const page = () => {
   return (
     <main
-     style={style}
+      style={style}
       className="min-h-screen p-4 py-8 md:p-24 2xl:px-56 text-left"
     >
       <section className="backdrop-blur-md px-8 py-6 rounded-2xl mt-20 md:mt-16">
@@ -47,12 +48,6 @@ const page = () => {
             FIT campus
           </h3>
 
-          <h2 className="my-4 md:my-8">
-            <span className="text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
-              Registration Fee:
-            </span>{" "}
-            ₹30/-
-          </h2>
           <h3 className="my-2">
             <span className="text-orange-200 text-base md:text-2xl 2xl:text-4xl">
               Time Limit:
@@ -65,6 +60,12 @@ const page = () => {
             </span>{" "}
             1 Participant
           </h3>
+          <h2 className="my-4 md:my-8">
+            <span className="text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
+              Registration Fee:
+            </span>{" "}
+            ₹30/-
+          </h2>
         </div>
         <div className="md:px-44 text-sm md:text-xl 2xl:text-2xl">
           <h2 className="my-4 md:my-8 text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
@@ -79,12 +80,13 @@ const page = () => {
             <li className="my-2">
               All additional required art supplies, such as pens, pencils,
               erasers, paints, paintbrushes, markers, drawing boards, etc.,
-              should be <span className="text-red-600">brought by competitors.</span>
+              should be{" "}
+              <span className="text-red-600">brought by competitors.</span>
             </li>
             <li className="my-2">
               It is highly forbidden for participants to bring any type of image
-              to the event, and doing so will result in their <span className="text-red-600">automatic
-              disqualification.</span>
+              to the event, and doing so will result in their{" "}
+              <span className="text-red-600">automatic disqualification.</span>
             </li>
             <li className="my-2">
               It is not permitted to use a stencil in any way.
@@ -122,7 +124,8 @@ const page = () => {
           <ul>
             <li className="list-disc text-sm md:text-lg">
               Any explicit controversial content or any form of content that
-              could be offensive to any community will lead to <span className="text-red-600">disqualification.</span>
+              could be offensive to any community will lead to{" "}
+              <span className="text-red-600">disqualification.</span>
             </li>
           </ul>
 
@@ -132,7 +135,13 @@ const page = () => {
 
           {contacts.map((contact, index) => (
             <div key={index} className="flex items-center gap-x-6 my-4">
-              <Image className="h-12 w-12 rounded-full" height={100} width={100} src={contact.img} alt={contact.name} />
+              <Image
+                className="h-12 w-12 rounded-full"
+                height={100}
+                width={100}
+                src={contact.img}
+                alt={contact.name}
+              />
               <div>
                 <h4 className="text-base 2xl:text-xl md:font-semibold leading-7 tracking-tight">
                   {contact.name}

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -44,7 +45,7 @@ const About = () => {
         <div className=" flex flex-col justify-center items-center mt-32 h-96 pb-8">
           <div className="h-full flex flex-col gap-6">
             <Image
-              className="animate-[bounce_3s_infinite] w-56 2xl:w-full mx-auto"
+              className="animate-[bounce_3s_infinite] w-72 h-56 2xl:w-96 2xl:h-96 mx-auto"
               src={`/backgrounds/about/about-${currentImage + 1}.png`}
               width="350"
               height="220"

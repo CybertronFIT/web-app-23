@@ -22,10 +22,11 @@ const contacts = [
 ];
 
 const style = {
-  background: "linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65)), url(/backgrounds/events/gunsmith-glory.webp)",
+  background:
+    "linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65)), url(/backgrounds/events/gunsmith-glory.webp)",
   backgroundRepeat: "no-repeat",
-  backgroundSize: "cover"
-}
+  backgroundSize: "cover",
+};
 
 const page = () => {
   return (
@@ -68,6 +69,12 @@ const page = () => {
             </span>{" "}
             ₹100/- per team
           </h2>
+          <h2 className="my-4 md:my-8">
+            <span className="text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
+              Winner Prize:
+            </span>{" "}
+            ₹150/- per match
+          </h2>
         </div>
         <div className="md:px-44 text-sm md:text-xl 2xl:text-2xl">
           <h2 className="my-4 md:my-8 text-orange-200 text-lg md:text-2xl 2xl:text-4xl">
@@ -81,10 +88,12 @@ const page = () => {
               A team of 4 or 5 members will be playing in a custom room.
             </li>
             <li className="list-disc text-sm md:text-lg my-2">
-              No hacks, No Custom Crosshair Otherwise team <span className="text-red-600">will be disqualified.</span>
+              No hacks, No Custom Crosshair Otherwise team{" "}
+              <span className="text-red-600">will be disqualified.</span>
             </li>
             <li className="list-disc text-sm md:text-lg my-2">
-              No Controller players Allowed Otherwise team <span className="text-red-600">will be disqualified.</span>
+              No Controller players Allowed Otherwise team{" "}
+              <span className="text-red-600">will be disqualified.</span>
             </li>
 
             <li className="list-disc text-sm md:text-lg my-2">
@@ -98,7 +107,13 @@ const page = () => {
 
           {contacts.map((contact, index) => (
             <div key={index} className="flex items-center gap-x-6 my-4">
-              <Image className="h-12 w-12 rounded-full" height={100} width={100} src={contact.img} alt={contact.name} />
+              <Image
+                className="h-12 w-12 rounded-full"
+                height={100}
+                width={100}
+                src={contact.img}
+                alt={contact.name}
+              />
               <div>
                 <h4 className="text-base 2xl:text-xl md:font-semibold leading-7 tracking-tight">
                   {contact.name}

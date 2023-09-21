@@ -62,11 +62,15 @@ const Card = ({ card }: CardProps) => {
 
 const Events = () => {
   return (
-    <section className="md:px-28 text-center mt-24 md:mt-56" id="events">
-      <h2 className="text-4xl md:text-6xl 2xl:text-7xl -mb-24 md:mb-14 2xl:-mb-16 text-orange-100">
-        Events
-      </h2>
-      {/* <h3 className="text-orange-500/30">For this Summer version</h3> */}
+    <section className="md:px-28 text-center mt-24" id="events">
+      <div className="flex items-center justify-center flex-col gap-y-10">
+        <h2 className="text-4xl md:text-6xl 2xl:text-7xl  text-orange-100">
+          Events
+        </h2>
+        <span className="font-bold uppercase tracking-[0.5em] md:tracking-[1em] text-neutral-700">
+          Scroll to down
+        </span>
+      </div>
       <HorizontalScrollCarousel />
       <Link
         className="mx-auto p-4 text-black bg-orange-400 border-2 border-orange-500 shadow-lg hover:text-white shadow-orange-500 rounded-xl"
