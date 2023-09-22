@@ -1,9 +1,15 @@
 import React from "react";
 
+const style = {
+  background: "linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65)), url(/backgrounds/events/tech-talks.webp)",
+  backgroundPosition: "center",
+  backgroundSize: "cover"
+}
+
 const page = () => {
   return (
     <main
-      id="hero"
+      style={style}
       className="min-h-screen p-4 py-8 md:p-24 md:px-32 2xl:px-80 text-left"
     >
       <section className="backdrop-blur-md px-8 md:px-32 py-6 rounded-2xl mt-20 md:mt-16 text-left text-orange-200">

@@ -67,7 +67,7 @@ const Events = () => {
         <h2 className="text-4xl md:text-6xl 2xl:text-7xl  text-orange-100">
           Events
         </h2>
-        <span className="font-bold uppercase tracking-[0.5em] md:tracking-[1em] text-neutral-700">
+        <span className="font-bold uppercase tracking-[0.25em] md:tracking-[1em] text-orange-500/50">
           Scroll to down
         </span>
       </div>
