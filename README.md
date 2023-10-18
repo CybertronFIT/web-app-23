@@ -1,6 +1,6 @@
-<h1 align="center">CYBERTRON 2023 ( Summer Version )</h1>
+<h1 align="center">CYBERTRON 2023 ( Winter Version )</h1>
 
-<h3 align="center">Held on 26th September 2023</h3>
+<h3 align="center">Gonna take place on January 2024</h3>
 
 <br>
 
