@@ -1,19 +1,7 @@
-<center> 
+<h1 align="center">CYBERTRON 2023 ( Summer Version )</h1>
 
- <h1>CYBERTRON 2023 ( Summer Version )</h1>
-
-</center>
-
-<center> 
-
- <h3>Held on 26th September 2023</h3> 
-
-</center>
+<h3 align="center">Held on 26th September 2023</h3>
 
 <br>
 
-<center> 
-
- <p><strong>By</strong> - Future Institute of Technology @<strong>CSE ( IOT-CS & BCT )</strong> Department</p> 
- 
-</center>
+<p align="center"><strong>By</strong> - Future Institute of Technology @<strong>CSE ( IOT-CS & BCT )</strong> Department</p>
