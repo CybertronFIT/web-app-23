@@ -1,4 +1,6 @@
-import Countdown from "@/components/ui/Countdown";
+import dynamic from 'next/dynamic'
+ 
+const Countdown = dynamic(() => import('@/components/ui/Countdown'), { ssr: false })
 
 const Hero = () => {
   return (
