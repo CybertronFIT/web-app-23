@@ -1,8 +1,9 @@
-import { Footer } from "@/components/Footer";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Audiowide } from "next/font/google";
+import { Footer } from "@/components/Footer";
+// import { AuthProvider } from "@/components/Provider";
 
 const inter = Audiowide({ weight: "400", subsets: ["latin"] });
 
@@ -29,8 +30,10 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className="min-h-screen bg-black scroll-smooth antialiased"
       >
-        {children}
-        <Footer />
+        {/* <AuthProvider> */}
+          {children}
+          <Footer />
+        {/* </AuthProvider> */}
       </body>
     </html>
   );

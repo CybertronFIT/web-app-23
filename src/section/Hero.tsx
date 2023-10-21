@@ -13,8 +13,8 @@ const Hero = () => {
           >
             CYBERTRON&apos; 23
           </h1>
-          <p className="mt-12 md:mt-16 text-orange-200/30 text-xl md:text-2xl tracking-widest px-12">
-            <span className="text-white">Summer Version</span> Coming In...
+          <p className="mt-12 md:mt-16 text-cyan-200/30 text-xl md:text-2xl tracking-widest px-16">
+            <span className="text-white">Winter Version</span> Coming In...
           </p>
         </div>
         <Countdown />

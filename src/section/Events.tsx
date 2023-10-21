@@ -50,7 +50,7 @@ const Card = ({ card }: CardProps) => {
             <h4 className="text-xl md:text-2xl 2xl:text-4xl font-bold">
               {card.title}
             </h4>
-            <p className="text-sm md:text-lg 2xl:text-xl text-orange-400">
+            <p className="text-sm md:text-lg 2xl:text-xl text-cyan-400">
               Click to View
             </p>
           </div>
@@ -64,16 +64,16 @@ const Events = () => {
   return (
     <section className="md:px-28 text-center mt-24" id="events">
       <div className="flex items-center justify-center flex-col gap-y-10">
-        <h2 className="text-4xl md:text-6xl 2xl:text-7xl  text-orange-100">
+        <h2 className="text-4xl md:text-6xl 2xl:text-7xl  text-cyan-100">
           Events
         </h2>
-        <span className="font-bold uppercase tracking-[0.25em] md:tracking-[1em] text-orange-500/50">
+        <span id="scroll-to-down" className="font-bold uppercase tracking-[0.25em] md:tracking-[1em]">
           Scroll to down
         </span>
       </div>
       <HorizontalScrollCarousel />
       <Link
-        className="mx-auto p-4 text-black bg-orange-400 border-2 border-orange-500 shadow-lg hover:text-white shadow-orange-500 rounded-xl"
+        className="mx-auto p-4 text-black bg-cyan-400 border-2 border-cyan-500 shadow-lg hover:text-white shadow-cyan-500 rounded-xl"
         href="/events"
       >
         Read Rules

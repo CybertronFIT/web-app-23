@@ -1,55 +1,38 @@
+"use client";
 
-import React from "react";
 import Image from "next/image";
-import { faculties, members } from "@/components/info/Objects";
+import Person from "@/components/loader/Person";
+import React, { useState, useEffect } from "react";
+import { fetchAdminData } from "@/components/database/FetchData";
 
-const team = [
-  {
-    name: members[6].name,
-    role: "Coordinator",
-    image: members[6].img,
-  },
-  {
-    name: members[3].name,
-    role: "Coordinator",
-    image: members[3].img,
-  },
-  {
-    name: members[9].name,
-    role: "Design Head",
-    image: members[9].img,
-  },
-  {
-    name: members[11].name,
-    role: "Design Head",
-    image: members[11].img,
-  },
-  {
-    name: members[0].name,
-    role: "Design Head",
-    image: members[0].img,
-  },
-  {
-    name: members[8].name,
-    role: "Design Head",
-    image: members[8].img,
-  },
-  {
-    name: members[4].name,
-    role: "Design Head",
-    image: members[4].img,
-  },
-  {
-    name: members[13].name,
-    role: "Design Head",
-    image: members[13].img,
-  },
-];
+const fac = [1, 2, 3, 4, 5];
+const mem = [1, 2, 3, 4, 5, 6, 7, 8];
 
 const Team = () => {
+  const [faculties, setFaculties] = useState<
+    { name: string; image: string; role: string }[] | null
+  >(null);
+  const [members, setMembers] = useState<
+    { name: string; image: string; role: string }[] | null
+  >(null);
+
+  useEffect(() => {
+    const fetchAdminData_ = async () => {
+      const faculties_data = await fetchAdminData("faculties");
+      setFaculties(faculties_data);
+      const coordinators_data = await fetchAdminData("members?role=Coordinator");
+      const designHeads_data = await fetchAdminData("members?role=Design Head");
+      if (coordinators_data && designHeads_data) {
+        setMembers(coordinators_data.concat(designHeads_data));
+      }
+    };
+
+    fetchAdminData_();
+  }, []);
+
   return (
     <section className="py-24 sm:py-32 xl:py-56 px-6 md:px-32" id="team">
-      <h2 className="text-center text-4xl md:text-6xl 2xl:text-7xl text-orange-100 sub-head">
+      <h2 className="text-center text-4xl md:text-6xl 2xl:text-7xl text-cyan-100 sub-head">
         Team
       </h2>
       <div className="mt-24 md:mt-44 mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
@@ -67,31 +50,41 @@ const Team = () => {
           role="list"
           className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2"
         >
-          {faculties.map((person) => (
-            <li key={person.name}>
-              <div className="flex items-center gap-x-6">
-                <Image
-                  className="h-16 w-16 rounded-full"
-                  src={person.img}
-                  alt={person.name}
-                  height={100}
-                  width={100}
-                />
-                <div>
-                  <h4 className="text-base md:font-semibold leading-7 tracking-tight">
-                    {person.name}
-                  </h4>
-                  <p className="text-sm md:font-semibold leading-6 text-orange-400">
-                    {person.role}
-                  </p>
-                </div>
-              </div>
-            </li>
-          ))}
+          {faculties ? (
+            <>
+              {faculties.map((person) => (
+                <li key={person.name}>
+                  <div className="flex items-center gap-x-6">
+                    <Image
+                      className="h-16 w-16 rounded-full"
+                      src={person.image}
+                      alt={person.name}
+                      height={100}
+                      width={100}
+                    />
+                    <div>
+                      <h4 className="text-base md:font-semibold leading-7 tracking-tight">
+                        {person.name}
+                      </h4>
+                      <p className="text-sm md:font-semibold leading-6 text-cyan-400">
+                        {person.role}
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </>
+          ) : (
+            <>
+              {fac.map((key) => (
+                <Person key={key} />
+              ))}
+            </>
+          )}
         </ul>
       </div>
 
-      <div className="mt-16 md:mt-24 -mb-8 mx-auto bg-white h-1 w-2/3 2xl:w-1/2 rounded-full shadow-[0px_0px_10px_4px_#FFA500]"></div>
+      <div className="mt-16 md:mt-24 -mb-8 mx-auto bg-white h-1 w-2/3 2xl:w-1/2 rounded-full shadow-[0px_0px_10px_4px_#00FFFF]"></div>
 
       <div className="mt-24 md:mt-44 mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
         <div className="max-w-2xl text-center md:text-left">
@@ -108,27 +101,37 @@ const Team = () => {
           role="list"
           className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2"
         >
-          {team.map((person) => (
-            <li key={person.name}>
-              <div className="flex items-center gap-x-6">
-                <Image
-                  className="h-16 w-16 rounded-full"
-                  src={person.image}
-                  alt={person.name}
-                  height={100}
-                  width={100}
-                />
-                <div>
-                  <h4 className="text-base md:font-semibold leading-7 tracking-tight">
-                    {person.name}
-                  </h4>
-                  <p className="text-sm md:font-semibold leading-6 text-orange-400">
-                    {person.role}
-                  </p>
-                </div>
-              </div>
-            </li>
-          ))}
+          {members ? (
+            <>
+              {members.map((person) => (
+                <li key={person.name}>
+                  <div className="flex items-center gap-x-6">
+                    <Image
+                      className="h-16 w-16 rounded-full"
+                      src={person.image}
+                      alt={person.name}
+                      height={100}
+                      width={100}
+                    />
+                    <div>
+                      <h4 className="text-base md:font-semibold leading-7 tracking-tight">
+                        {person.name}
+                      </h4>
+                      <p className="text-sm md:font-semibold leading-6 text-cyan-400">
+                        {person.role}
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </>
+          ) : (
+            <>
+              {mem.map((key) => (
+                <Person key={key} />
+              ))}
+            </>
+          )}
         </ul>
       </div>
     </section>
