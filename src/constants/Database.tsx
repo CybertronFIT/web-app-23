@@ -1,4 +1,4 @@
-const accessToken = process.env.REST_KEY || "d4aTlAWGo2NJ16ClyrAW9KgSFdxN6q40CPOVxmRd";
+const accessToken = process.env.REST_KEY || "";
 
 export const API_URL = "https://cybertron23-winter-rest.fit-cybertron.workers.dev/";
 
