@@ -20,7 +20,9 @@ const Team = () => {
     const fetchAdminData_ = async () => {
       const faculties_data = await fetchAdminData("faculties");
       setFaculties(faculties_data);
-      const coordinators_data = await fetchAdminData("members?role=Coordinator");
+      const coordinators_data = await fetchAdminData(
+        "members?role=Coordinator"
+      );
       const designHeads_data = await fetchAdminData("members?role=Design Head");
       if (coordinators_data && designHeads_data) {
         setMembers(coordinators_data.concat(designHeads_data));
@@ -77,7 +79,9 @@ const Team = () => {
           ) : (
             <>
               {fac.map((key) => (
-                <Person key={key} />
+                <li key={key}>
+                  <Person />
+                </li>
               ))}
             </>
           )}
@@ -128,7 +132,9 @@ const Team = () => {
           ) : (
             <>
               {mem.map((key) => (
-                <Person key={key} />
+                <li key={key}>
+                  <Person />
+                </li>
               ))}
             </>
           )}

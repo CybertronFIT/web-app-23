@@ -154,3 +154,7 @@
 h2 {
   text-shadow: 0px 0px 25px cyan;
 }
+
+#btn {
+  @apply py-3 px-4 text-black bg-cyan-400 border-2 border-cyan-500 shadow-lg hover:text-white shadow-cyan-700 hover:shadow-cyan-500 rounded-xl
+}

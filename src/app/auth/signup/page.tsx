@@ -4,21 +4,89 @@
 import React, { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Page = () => {
+  const years = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
+  const depts = [
+    "CSE",
+    "CSE (IOT & Cys)",
+    "CSE (AI & ML)",
+    "CSE (Data Science)",
+    "ECE",
+    "EE",
+    "ME",
+    "Civil",
+    "Other",
+  ];
+  const colleges = [
+    "FIT",
+    "FIEM",
+    "JIS",
+    "Techno Main",
+    "Techno Saltlake",
+    "GMIT",
+    "Bivekananda",
+    "Other",
+  ];
+
   const router = useRouter();
-  const [name, setName] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [email, setEmail] = useState("");
-  const [year, setYear] = useState("");
-  const [dept, setDept] = useState("");
-  const [college, setCollege] = useState("");
+  const [name, setName] = useState<string>("");
+  const [mobile, setMobile] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [year, setYear] = useState<string>("");
+  const [dept, setDept] = useState<string>("");
+  const [college, setCollege] = useState<string>("");
+  const [otherdept, setOtherDept] = useState<string>("");
+  const [isotherdept, setIsOtherDept] = useState<boolean>(false);
+  const [otherCollege, setOtherCollege] = useState<string>("");
+  const [isotherCollege, setIsOtherCollege] = useState<boolean>(false);
+  const [visible, setVisible] = useState<string>("hidden");
+
+  // Response Data
+  const [prtID, setPrtID] = useState("");
+
+  const handleDept = (e: { target: { value: any } }) => {
+    setDept(e.target.value);
+    if (e.target.value === "Other") {
+      setIsOtherDept(true);
+      setOtherDept("");
+    } else {
+      setIsOtherDept(false);
+      setOtherDept(e.target.value);
+    }
+  };
+
+  const handleCollege = (e: { target: { value: any } }) => {
+    setCollege(e.target.value);
+    if (e.target.value === "Other") {
+      setIsOtherCollege(true);
+      setOtherCollege("");
+    } else {
+      setIsOtherCollege(false);
+      setOtherCollege(e.target.value);
+    }
+  };
+
+  // Pop Up Message
+  const [isPopupVisible, setPopupVisible] = useState(false);
+  const [copyBtn, setCopyBtn] = useState("Copy");
+
+  const closePopup = () => {
+    setPopupVisible(false);
+    router.push("/profile");
+  };
+
+  const handleCopyBtn = () => {
+    navigator.clipboard.writeText(prtID);
+    setCopyBtn("Copied !");
+  };
 
   const register = async () => {
     const apiUrl = "/api/auth/register";
 
-    if (!name || !mobile || !email || !year || !dept || !college) {
-      alert("Please Enter all details");
+    if (!name || !mobile || !email || !year || !otherdept || !college) {
+      setVisible("");
       return;
     }
 
@@ -27,8 +95,8 @@ const Page = () => {
       mobile: mobile,
       email: email,
       year: year,
-      department: dept,
-      college: college,
+      department: otherdept,
+      college: otherCollege,
     };
 
     try {
@@ -40,154 +108,239 @@ const Page = () => {
       console.log("In Page :" + JSON.stringify(response));
 
       if (response.status === 200) {
-        alert("Success" + JSON.stringify(response));
-        router.push("/");
+        setPrtID(response.data.body.id);
+        setPopupVisible(true);
       }
     } catch (error) {
       const e = error as AxiosError;
       if (e.response) {
-        alert("Error Code: " + e.response.status + " Error Message: " + e.response.data);
+        alert(
+          "Error Code: " +
+            e.response.status +
+            " Error Message: " +
+            e.response.data
+        );
       }
     }
   };
 
   return (
-    <section className="h-screen px-24">
-      <div className="h-full">
-        <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
-          <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-            <img
-              src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-              className="w-full"
-              alt="Sample image"
-            />
+    <section className="py-14 px-6 md:px-[23%] bg-gradient-to-b from-slate-700 to-black">
+      <div className="p-6 md:px-4 bg-[#1b1b1b36] border border-gray-900 rounded-xl">
+        {isPopupVisible && (
+          <div className="fixed inset-0 flex items-center justify-center z-50 text-white">
+            <div
+              className="fixed inset-0 bg-black opacity-70"
+              onClick={closePopup}
+            ></div>
+            <div className="bg-gray-800 w-96 min-h-[15rem] p-4 px-7 rounded-lg shadow-lg relative grid place-content-center text-center">
+              <h3 className="text-xl my-4 text-lime-500">
+                Registration Successfull
+              </h3>
+              <h2 className="text-xl my-4">{prtID}</h2>
+              <button id="btn" className="my-4 mx-auto" onClick={handleCopyBtn}>
+                {copyBtn}
+              </button>
+              <p className="text-sm my-4 text-red-600 font-semibold">
+                This is Your Participant ID, save it for Future Use
+              </p>
+            </div>
           </div>
+        )}
 
-          <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
-            <form>
-              <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-                <p className="mx-4 mb-0 text-center font-semibold dark:text-white">
-                  Or
-                </p>
-              </div>
+        <div className="flex flex-col items-center justify-center my-10">
+          <form className="md:w-[60%]">
+            <h2 className="text-center text-xl font-semibold my-4 mb-12">
+              Please Enter all Details
+            </h2>
 
-              <div className="relative mb-6" data-te-input-wrapper-init>
+            <div className="my-16 ">
+              <div className="relative">
                 <input
                   type="text"
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                  className="block peer rounded-md my-4 py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-cyan-500 focus:outline-none focus:ring-0 focus:border-cyan-500 peer"
                   id="name"
-                  placeholder="Full Name"
+                  placeholder="  "
                   value={name}
                   onChange={({ target }) => setName(target.value)}
+                  required={true}
                 />
                 <label
+                  className="text-white absolute transform -translate-y-4 scale-75 top-2 z-10 origin-[0] peer-focus:px-2 peer-focus:text-cyan-500 peer-focus:dark:text-cyan-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                   htmlFor="name"
-                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
                 >
                   Full Name
                 </label>
               </div>
-
-              <div className="relative mb-6" data-te-input-wrapper-init>
+              <div className="relative">
                 <input
-                  type="text"
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                  type="tel"
+                  className="block rounded-md my-4 py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-cyan-500 focus:outline-none focus:ring-0 focus:border-cyan-500 peer"
                   id="mobile"
-                  placeholder="+91"
+                  placeholder="  "
                   value={mobile}
                   onChange={({ target }) => setMobile(target.value)}
+                  required={true}
                 />
                 <label
+                  className="text-white absolute transform -translate-y-4 scale-75 top-2 z-10 origin-[0] peer-focus:px-2 peer-focus:text-cyan-500 peer-focus:dark:text-cyan-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                   htmlFor="mobile"
-                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
                 >
-                  Mobile number
+                  Mobile Number
                 </label>
               </div>
-
-              <div className="relative mb-6" data-te-input-wrapper-init>
+              <div className="relative">
                 <input
-                  type="text"
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                  type="email"
+                  className="block rounded-md my-4 py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-cyan-500 focus:outline-none focus:ring-0 focus:border-cyan-500 peer"
                   id="email"
-                  placeholder="johndoe@gmail.com"
+                  placeholder="  "
                   value={email}
                   onChange={({ target }) => setEmail(target.value)}
+                  required={true}
                 />
                 <label
+                  className="text-white absolute transform -translate-y-4 scale-75 top-2 z-10 origin-[0] peer-focus:px-2 peer-focus:text-cyan-500 peer-focus:dark:text-cyan-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                   htmlFor="email"
-                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
                 >
                   Email ID
                 </label>
               </div>
-
-              <div className="relative mb-6" data-te-input-wrapper-init>
-                <input
-                  type="text"
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                  id="year"
-                  placeholder="4th Year"
-                  value={year}
+              <div className="relative">
+                <select
+                  name="year"
                   onChange={({ target }) => setYear(target.value)}
-                />
-                <label
-                  htmlFor="year"
-                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+                  value={year}
+                  required
+                  className="text-white my-2 rounded-md py-2.5 w-full bg-transparent border-0 appearance-none outline-none border-b-2 border-gray-300 dark:text-white dark:border-gray-600 dark:focus:border-cyan-500 focus:outline-none focus:ring-0 focus:border-cyan-500"
                 >
-                  Year
-                </label>
+                  <option className="text-gray-900 px-4" value={""}>
+                    Studying Year
+                  </option>
+                  {years.map((year, index) => (
+                    <option
+                      key={index}
+                      className="text-gray-900 px-4"
+                      value={year}
+                    >
+                      {year}
+                    </option>
+                  ))}
+                </select>
               </div>
-
-              <div className="relative mb-6" data-te-input-wrapper-init>
-                <input
-                  type="text"
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              <div className="relative">
+                <select
                   id="dept"
-                  placeholder="Department"
+                  onChange={handleDept}
                   value={dept}
-                  onChange={({ target }) => setDept(target.value)}
-                />
-                <label
-                  htmlFor="dept"
-                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+                  required
+                  className="text-white my-2 rounded-md py-2.5 w-full bg-transparent border-0 appearance-none outline-none border-b-2 border-gray-300 dark:text-white dark:border-gray-600 dark:focus:border-cyan-500 focus:outline-none focus:ring-0 focus:border-cyan-500"
                 >
-                  Department
-                </label>
+                  <option className="text-gray-900 px-4" value={""}>
+                    Select Department
+                  </option>
+                  {depts.map((dept, index) => (
+                    <option
+                      key={index}
+                      className="text-gray-900 px-4"
+                      value={dept}
+                    >
+                      {dept}
+                    </option>
+                  ))}
+                </select>
               </div>
+              {isotherdept ? (
+                <div className="relative">
+                  <input
+                    type="text"
+                    className="block rounded-md my-6 py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-cyan-500 focus:outline-none focus:ring-0 focus:border-cyan-500 peer"
+                    id="dept"
+                    placeholder="  "
+                    value={otherdept}
+                    onChange={({ target }) => setOtherDept(target.value)}
+                    required={true}
+                  />
+                  <label
+                    className="text-white absolute transform -translate-y-4 scale-75 top-2 z-10 origin-[0] peer-focus:px-2 peer-focus:text-cyan-500 peer-focus:dark:text-cyan-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                    htmlFor="dept"
+                  >
+                    Mention Department
+                  </label>
+                </div>
+              ) : (
+                <></>
+              )}
 
-              <div className="relative mb-6" data-te-input-wrapper-init>
-                <input
-                  type="text"
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+              <div className="relative">
+                <select
                   id="college"
-                  placeholder="College"
+                  onChange={handleCollege}
                   value={college}
-                  onChange={({ target }) => setCollege(target.value)}
-                />
-                <label
-                  htmlFor="college"
-                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+                  required
+                  className="text-white my-2 rounded-md py-2.5 w-full bg-transparent border-0 appearance-none outline-none border-b-2 border-gray-300 dark:text-white dark:border-gray-600 dark:focus:border-cyan-500 focus:outline-none focus:ring-0 focus:border-cyan-500"
                 >
-                  College
-                </label>
+                  <option className="text-gray-900 px-4" value={""}>
+                    Select College
+                  </option>
+                  {colleges.map((clg, index) => (
+                    <option
+                      key={index}
+                      className="text-gray-900 px-4"
+                      value={clg}
+                    >
+                      {clg}
+                    </option>
+                  ))}
+                </select>
               </div>
 
-              <div className="mb-6 flex items-center justify-between"></div>
+              {isotherCollege ? (
+                <div className="relative">
+                  <input
+                    type="text"
+                    className="block rounded-md my-4 py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-cyan-500 focus:outline-none focus:ring-0 focus:border-cyan-500 peer"
+                    id="college"
+                    placeholder="  "
+                    value={otherCollege}
+                    onChange={({ target }) => setOtherCollege(target.value)}
+                    required={true}
+                  />
+                  <label
+                    className="text-white absolute transform -translate-y-4 scale-75 top-2 z-10 origin-[0] peer-focus:px-2 peer-focus:text-cyan-500 peer-focus:dark:text-cyan-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                    htmlFor="college"
+                  >
+                    College Name
+                  </label>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
 
-              <div className="text-center lg:text-left">
-                <button
-                  type="button"
-                  className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                  onClick={register}
-                >
-                  Login
-                </button>
-              </div>
-            </form>
-          </div>
+            <p
+              className={`text-white text-xs p-1 px-2 rounded-md bg-[#f06868] border-2 border-red-600 ${visible} text-center mb-6`}
+            >
+              Please Enter All Fields
+            </p>
+
+            <div className="flex flex-col gap-3 items-center">
+              <button
+                id="btn"
+                type="button"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+                onClick={register}
+              >
+                Register
+              </button>
+
+              <Link className="text-xs text-center mt-8" href={"/auth/login"}>
+                Already Registered ?{" "}
+                <span className="underline text-cyan-500">Login Instead</span>
+              </Link>
+            </div>
+          </form>
         </div>
       </div>
     </section>

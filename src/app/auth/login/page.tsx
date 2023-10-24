@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Page = () => {
   const router = useRouter();
@@ -12,19 +13,22 @@ const Page = () => {
   const login = async () => {
     const apiUrl = "/api/auth/login";
 
+    if (id === "" || !id.startsWith("PRC#")) {
+      alert("Invalid ID");
+      return;
+    }
+
     try {
       const response = await axios(apiUrl, {
         method: "POST",
         data: {
           id: id,
-          collection: "Members",
+          collection: "Participants",
         },
       });
 
       if (response) {
-        // alert("Success" + JSON.stringify(response));
-
-        router.push("/");
+        router.push("/profile");
       } else {
         alert("Invalid Credentials !");
       }
@@ -35,57 +39,51 @@ const Page = () => {
   };
 
   return (
-    <section className="h-screen px-24">
-      <div className="h-full">
-        <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
-          <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-            <img
-              src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-              className="w-full"
-              alt="Sample image"
-            />
-          </div>
+    <section className="py-16 px-12 md:px-[23%] bg-gradient-to-b from-slate-700 to-black">
+      <div className="p-6 md:px-4 bg-[#1b1b1b36] border border-gray-900 rounded-xl">
+        <div className="flex flex-col items-center justify-center mt-16 mb-20">
+          <form className="md:px-4 md:w-[60%]">
+            <h2 className="text-center text-xl font-semibold my-4 mb-12">
+              Enter Participant ID
+            </h2>
 
-          <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
-            <form>
-              <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-                <p className="mx-4 mb-0 text-center font-semibold dark:text-white">
-                  Or
-                </p>
-              </div>
-
-              <div className="relative mb-6" data-te-input-wrapper-init>
+            <div className="mt-24 mb-16">
+              <div className="relative">
                 <input
                   type="text"
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                  id="exampleFormControlInput2"
-                  placeholder="Your ID"
+                  className="block peer rounded-md my-4 py-2.5 px-4 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-cyan-500 focus:outline-none focus:ring-0 focus:border-cyan-500 peer"
+                  id="cybertron-id"
+                  placeholder="  "
                   value={id}
                   onChange={({ target }) => setID(target.value)}
+                  required={true}
                 />
                 <label
-                  htmlFor="exampleFormControlInput2"
-                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+                  className="text-white absolute transform -translate-y-4 scale-75 top-2 z-10 origin-[0] peer-focus:px-2 peer-focus:text-cyan-500 peer-focus:dark:text-cyan-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                  htmlFor="cybertron-id"
                 >
-                  Your ID
+                  Participant ID
                 </label>
               </div>
+            </div>
 
-              <div className="mb-6 flex items-center justify-between"></div>
+            <div className="flex flex-col gap-3 items-center">
+              <button
+                id="btn"
+                type="button"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+                onClick={login}
+              >
+                Login
+              </button>
 
-              <div className="text-center lg:text-left">
-                <button
-                  type="button"
-                  className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                  onClick={login}
-                >
-                  Login
-                </button>
-              </div>
-            </form>
-          </div>
+              <Link className="text-xs text-center mt-8" href={"/auth/signup"}>
+                Not Registered ?{" "}
+                <span className="underline text-cyan-500">Register Now</span>
+              </Link>
+            </div>
+          </form>
         </div>
       </div>
     </section>
