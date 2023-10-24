@@ -12,10 +12,9 @@ export const POST = async (request: Request) => {
   const { id, collection } = body;
 
   let result = null;
-  let token;
+  let token = "";
 
   if (collection === "Members") {
-
     result = await fetchAdminData(`members/${encodeURIComponent(id)}`);
 
     if (!result) {
@@ -32,16 +31,14 @@ export const POST = async (request: Request) => {
         id: id,
         name: name,
         role: role,
-        mobile: mobile
+        mobile: mobile,
       },
       secret,
       {
         expiresIn: MAX_AGE,
       }
     );
-
   } else {
-
     result = await fetchParticipantData(encodeURIComponent(id));
 
     if (!result) {
@@ -51,43 +48,58 @@ export const POST = async (request: Request) => {
       });
     }
 
-    const { name, mobile, email, year, department, college } = result[0];
+    try {
+      const { name, mobile, email, year, department, college } = result[0];
 
-    token = sign(
-      {
-        id: id,
-        name: name,
-        mobile: mobile,
-        email: email,
-        year: year,
-        department: department,
-        college: college,
-      },
-      secret,
-      {
-        expiresIn: MAX_AGE,
-      }
-    );
+      token = sign(
+        {
+          id: id,
+          name: name,
+          mobile: mobile,
+          email: email,
+          year: year,
+          department: department,
+          college: college,
+        },
+        secret,
+        {
+          expiresIn: MAX_AGE,
+        }
+      );
+    } catch (error) {
+      console.log(error);
+      console.error(error);
+      return NextResponse.json(error, {
+        status: 402,
+      });
+    }
   }
 
-  const serialized = serialize(TOKEN_NAME, token, {
-    httpOnly: true,
-    secure: true,
-    sameSite: "strict",
-    maxAge: MAX_AGE,
-    path: "/",
-  });
+  try {
+    const serialized = serialize(TOKEN_NAME, token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "strict",
+      maxAge: MAX_AGE,
+      path: "/",
+    });
 
-  return new NextResponse(
-    JSON.stringify({
-      message: "Authorized",
-      body: result,
-    }),
-    {
-      status: 200,
-      headers: {
-        "Set-Cookie": serialized,
-      },
-    }
-  );
+    return new NextResponse(
+      JSON.stringify({
+        message: "Authorized",
+        body: result,
+      }),
+      {
+        status: 200,
+        headers: {
+          "Set-Cookie": serialized,
+        },
+      }
+    );
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(error, {
+      status: 402,
+    });
+  }
 };
