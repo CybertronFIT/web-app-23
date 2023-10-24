@@ -22,11 +22,11 @@ export async function GET() {
   const { value } = token;
 
   try {
-
     const payload = verify(value, secret);
 
     const response = {
-      message: "Verified Participant",
+      message: "Verified User",
+      payload: payload,
     };
 
     return new Response(JSON.stringify(response), {
@@ -38,7 +38,7 @@ export async function GET() {
         message: "Something went wrong",
       },
       {
-        status: 400,
+        status: 402,
       }
     );
   }

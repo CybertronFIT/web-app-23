@@ -14,9 +14,9 @@ export const POST = async (request: Request) => {
   let result = null;
   let token;
 
-  if (collection === "Participants") {
+  if (collection === "Members") {
 
-    result = await fetchAdminData(encodeURIComponent(id));
+    result = await fetchAdminData(`members/${encodeURIComponent(id)}`);
 
     if (!result) {
       console.log(result);
@@ -25,15 +25,14 @@ export const POST = async (request: Request) => {
       });
     }
 
-    const { name, role, image, mobile } = result[0];
+    const { name, role, mobile } = result[0];
 
     token = sign(
       {
         id: id,
         name: name,
         role: role,
-        image: image,
-        mobile: mobile,
+        mobile: mobile
       },
       secret,
       {
