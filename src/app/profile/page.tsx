@@ -17,10 +17,10 @@ function JSONToTable({ data }: { data: { [key: string]: any } }) {
       <tbody>
         {columns.map((column, index) => (
           <tr key={index} className="">
-            <th className="md:px-4 p-2 border-r border-cyan-500">
+            <th className="md:px-4 p-2 text-sm md:text-base border-r border-cyan-500">
               {column.toUpperCase()}
             </th>
-            <td className="md:px-4 p-2 text-center w-40 md:w-56">
+            <td className="md:px-4 p-2 text-xs md:text-sm text-center w-40 md:w-56">
               {data[column]}
             </td>
           </tr>
@@ -83,7 +83,7 @@ const Page = () => {
               {isAdmin ? "Admin" : "Participant"}
             </p>
           </div>
-          <div className="p-4 text-black bg-white rounded-lg my-14 text-md text-center border-b-4 border-cyan-600">
+          <div className="p-2 md:p-4 text-black bg-white rounded-lg my-14 text-md text-center border-b-4 border-cyan-600">
             <JSONToTable data={json} />
           </div>
           <div className="flex flex-row mb-12 px-6 md:px-0">
