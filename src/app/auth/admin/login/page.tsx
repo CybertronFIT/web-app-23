@@ -28,7 +28,7 @@ const Page = () => {
       });
 
       if (response) {
-        router.push("/profile");
+        router.push("/admin-panel");
       } else {
         alert("Invalid Credentials !");
         return;

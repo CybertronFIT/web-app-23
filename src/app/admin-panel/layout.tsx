@@ -21,6 +21,7 @@ export default function AdminPanelLayout({
           if (!payload.id.startsWith("MEM#")) {
             // TODO: Toast that you are not allowed !
             router.push("/auth/admin/login");
+            return;
           }
 
           setIsallowed(true);

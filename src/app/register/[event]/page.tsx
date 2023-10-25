@@ -39,7 +39,7 @@ export default function Page({ params }: { params: { event: string } }) {
   const handleCopyBtn = () => {
     navigator.clipboard.writeText(teamID);
     setCopyBtn("Copied !");
-  }
+  };
 
   // Response Data
   const [teamID, setTeamID] = useState("");
@@ -156,11 +156,13 @@ export default function Page({ params }: { params: { event: string } }) {
                       className="fixed inset-0 bg-black opacity-70"
                       onClick={closePopup}
                     ></div>
-                    <div className="bg-gray-800 w-96 min-h-[15rem] p-4 px-7 rounded-lg shadow-lg relative grid place-content-center text-center">
-                      <h3 className="text-xl my-4 text-lime-500">
+                    <div className="bg-gray-800 w-80 md:w-96 min-h-[12rem] md:min-h-[15rem] p-4 px-7 rounded-lg shadow-lg relative grid place-content-center text-center">
+                      <h3 className="text-lg md:text-xl md:my-4 my-3 text-lime-500">
                         Registration Successfull
                       </h3>
-                      <h2 className="text-xl my-4">{teamID}</h2>
+                      <h2 className="text-lg md:text-xl md:my-4 my-3">
+                        {teamID}
+                      </h2>
                       <button
                         id="btn"
                         className="my-4 mx-auto"
@@ -168,7 +170,7 @@ export default function Page({ params }: { params: { event: string } }) {
                       >
                         {copyBtn}
                       </button>
-                      <p className="text-sm my-4 text-red-600 font-semibold">
+                      <p className="text-xs md:text-sm md:my-4 my-3 text-red-600 font-semibold">
                         This is the ID of Your Team, save it for Future Use
                       </p>
                     </div>
