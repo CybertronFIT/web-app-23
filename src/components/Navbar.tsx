@@ -6,6 +6,7 @@ import MobileNav from "./ui/MobileNav";
 import CustomLink from "./ui/CustomLink";
 import { UserCircle } from "lucide-react";
 import axios, { AxiosError } from "axios";
+import { logOut } from "@/components/database/DeleteCookie";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -114,7 +115,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
                     <a href={"/profile"}>Profile</a>
                   </DropdownMenuItem>
                   <DropdownMenuItem className="bg-cyan-500 text-black focus:bg-cyan-500 rounded-sm">
-                    <button>Log Out</button>
+                    <button onClick={logOut}>Log Out</button>
                   </DropdownMenuItem>
                 </>
               ) : (

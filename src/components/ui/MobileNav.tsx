@@ -12,6 +12,7 @@ import CustomMobLink from "./CustomMobLink";
 import Link from "next/link";
 import axios, { AxiosError } from "axios";
 import { useState, useEffect } from "react";
+import { logOut } from "../database/DeleteCookie";
 
 interface MobileNavProps {
   activeSection: string;
@@ -89,7 +90,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
               <Link href={"/profile"}>Profile</Link>
             </DropdownMenuItem>
             <DropdownMenuItem className="bg-cyan-500 text-black focus:bg-cyan-500 rounded-sm">
-              <button>Log Out</button>
+              <button onClick={logOut}>Log Out</button>
             </DropdownMenuItem>
           </>
         ) : (

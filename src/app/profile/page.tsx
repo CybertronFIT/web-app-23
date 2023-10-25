@@ -3,6 +3,7 @@
 import axios, { AxiosError } from "axios";
 import { UserCircle2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { logOut } from "@/components/database/DeleteCookie";
 import React, { useState, useEffect } from "react";
 
 function JSONToTable({ data }: { data: { [key: string]: any } }) {
@@ -16,10 +17,12 @@ function JSONToTable({ data }: { data: { [key: string]: any } }) {
       <tbody>
         {columns.map((column, index) => (
           <tr key={index} className="">
-            <th className="px-4 py-2 border-r border-cyan-500">
+            <th className="md:px-4 p-2 border-r border-cyan-500">
               {column.toUpperCase()}
             </th>
-            <td className="px-4 py-2 text-center w-56">{data[column]}</td>
+            <td className="md:px-4 p-2 text-center w-40 md:w-56">
+              {data[column]}
+            </td>
           </tr>
         ))}
       </tbody>
@@ -32,6 +35,11 @@ const Page = () => {
   const [isAdmin, setisAdmin] = useState(false);
   const [id, setID] = useState("");
   const [json, setJSON] = useState({});
+
+  async function logOutUser() {
+    await logOut();
+    router.push("/auth/login");
+  }
 
   useEffect(() => {
     const checkRegistration = async () => {
@@ -78,17 +86,17 @@ const Page = () => {
           <div className="p-4 text-black bg-white rounded-lg my-14 text-md text-center border-b-4 border-cyan-600">
             <JSONToTable data={json} />
           </div>
-          <div className="flex flex-row mb-12">
-            <button id="btn" className="mr-12">
+          <div className="flex flex-row mb-12 px-6 md:px-0">
+            <button id="btn" onClick={logOutUser} className="md:mr-16 mr-8">
               Log Out
             </button>
 
             {isAdmin ? (
-              <a id="btn" className="ml-16" href="/admin-panel">
+              <a id="btn" className="md:ml-16 ml-8" href="/admin-panel">
                 Control Panel
               </a>
             ) : (
-              <a id="btn" className="ml-16" href="/#events">
+              <a id="btn" className="md:ml-16 ml-8" href="/#events">
                 Events
               </a>
             )}
