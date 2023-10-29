@@ -47,6 +47,6 @@ export default function AdminPanelLayout({
   }
 
   return (
-    <main className="min-h-screen grid place-content-center">{children}</main>
+    <main>{children}</main>
   );
 }

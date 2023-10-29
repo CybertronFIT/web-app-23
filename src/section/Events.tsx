@@ -1,16 +1,43 @@
 "use client";
 
 import { motion, useTransform, useScroll } from "framer-motion";
-import { events } from "@/components/info/Objects";
-import { useRef } from "react";
+import { Key, useRef, useState } from "react";
 import Link from "next/link";
 
 type CardProps = {
   card: {
     title: string;
     page: string;
+    image: string;
   };
 };
+
+const events = [
+  {
+    title: "Tech Talks",
+    page: "tech-talks",
+    image:
+      "https://user-images.githubusercontent.com/145213000/277575784-a6b0006e-40ba-4289-a092-052d2470d429.png",
+  },
+  {
+    title: "Capture The Flag",
+    page: "ctf",
+    image:
+      "https://user-images.githubusercontent.com/145213000/277575784-a6b0006e-40ba-4289-a092-052d2470d429.png",
+  },
+  {
+    title: "Hack the Algo",
+    page: "coding",
+    image:
+      "https://user-images.githubusercontent.com/145213000/277575804-3192b07a-a8c5-4cc9-9f6b-bc8d70b99989.jpg",
+  },
+  {
+    title: "Project Display",
+    page: "project",
+    image:
+      "https://user-images.githubusercontent.com/145213000/277575820-63608a30-3935-4b76-8bce-9cdf8a6a3584.png",
+  },
+];
 
 const HorizontalScrollCarousel = () => {
   const targetRef = useRef(null);
@@ -39,7 +66,7 @@ const Card = ({ card }: CardProps) => {
       <div className="group relative h-80 w-60 md:h-[350px] md:w-[260px] 2xl:h-[450px] 2xl:w-[350px] overflow-hidden bg-neutral-200 rounded-2xl">
         <div
           style={{
-            backgroundImage: `url(backgrounds/events/${card.page}.webp)`,
+            backgroundImage: `url(${card.image})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -67,7 +94,10 @@ const Events = () => {
         <h2 className="text-4xl md:text-6xl 2xl:text-7xl  text-cyan-100">
           Events
         </h2>
-        <span id="scroll-to-down" className="font-bold uppercase tracking-[0.25em] md:tracking-[1em]">
+        <span
+          id="scroll-to-down"
+          className="font-bold uppercase tracking-[0.25em] md:tracking-[1em]"
+        >
           Scroll to down
         </span>
       </div>

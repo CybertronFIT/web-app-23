@@ -39,7 +39,7 @@ export const POST = async (request: Request) => {
       }
     );
   } else {
-    result = await fetchParticipantData(encodeURIComponent(id));
+    result = await fetchParticipantData( "/" + encodeURIComponent(id));
 
     if (!result) {
       console.log(result);

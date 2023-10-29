@@ -40,7 +40,7 @@ const Page = () => {
   };
 
   return (
-    <section className="py-10 px-12 md:px-[23%] bg-gradient-to-b from-slate-700 to-black">
+    <section className="py-16 px-12 md:px-[23%] bg-gradient-to-b from-slate-700 to-black">
       <div className="p-6 md:px-4 bg-[#1b1b1b36] border border-gray-900 rounded-xl">
         <div className="flex flex-col items-center justify-center my-16">
           <form className="md:px-4 md:w-[60%]">
