@@ -1,4 +1,4 @@
-<h1 align="center">CYBERTRON 2023 ( Winter Version )</h1>
+<h1 align="center">CYBERTRON 2024 ( Winter Version )</h1>
 
 <h3 align="center">Gonna take place on January 2024</h3>
 
