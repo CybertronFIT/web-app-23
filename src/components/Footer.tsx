@@ -2,9 +2,9 @@ import { Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-export const Footer = () => {
+const Footer = () => {
   return (
-    <footer className="text-gray-400 bg-transparent backdrop-blur-lg body-font">
+    <footer className="text-gray-400 bg-transparent body-font">
       <div className="container px-16 md:px-36 2xl:px-16 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <a
           id="footer-head"
@@ -13,7 +13,7 @@ export const Footer = () => {
           <span className="ml-3 text-xl text-cyan-200">Cybertron</span>
         </a>
         <p className="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
-          © 2023 Cybertron —{" "}
+          © 2024 Cybertron —{" "}
           <Link
             href={"https://github.com/CybertronFIT"}
             className="text-cyan-500"
@@ -29,11 +29,16 @@ export const Footer = () => {
             <Facebook size={28} strokeWidth={1.5} />
           </Link>
 
-          <Link className="ml-3 text-gray-400 hover:text-cyan-500 mx-auto" href={"https://instagram.com/cybertron_fit?igshid=YWYwM2I1ZDdmOQ=="}>
-          <Instagram size={28} strokeWidth={1.5} />
+          <Link
+            className="ml-3 text-gray-400 hover:text-cyan-500 mx-auto"
+            href={"https://instagram.com/cybertron_fit?igshid=YWYwM2I1ZDdmOQ=="}
+          >
+            <Instagram size={28} strokeWidth={1.5} />
           </Link>
         </span>
       </div>
     </footer>
   );
 };
+
+export default Footer;

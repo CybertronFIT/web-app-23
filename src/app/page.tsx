@@ -1,15 +1,15 @@
-import Navbar from "@/components/Navbar";
-import About from "@/section/About";
-import Events from "@/section/Events";
-import Hero from "@/section/Hero";
-import Team from "@/section/Team";
+import Navbar from "@/components/navbar/Navbar";
+import About from "@/components/section/About";
+import Events from "@/components/section/Events";
+import Hero from "@/components/section/Hero";
+import Team from "@/components/section/Team";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Navbar />
 
-      <main className="min-h-[400vh]">
+      <main>
         <Hero />
         <About />
         <Events />
@@ -17,4 +17,6 @@ export default function Home() {
       </main>
     </>
   );
-}
+};
+
+export default Home;

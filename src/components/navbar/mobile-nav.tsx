@@ -6,53 +6,53 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/Dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import { Codesandbox } from "lucide-react";
-import CustomMobLink from "./CustomMobLink";
+import CustomLink from "./custom-link";
 import Link from "next/link";
-import axios, { AxiosError } from "axios";
-import { useState, useEffect } from "react";
-import { logOut } from "../database/DeleteCookie";
 
 interface MobileNavProps {
   activeSection: string;
+  isRegistered: boolean;
+  isAdmin: boolean;
+  avatar: string;
   handleSetActive: (section: string) => void;
 }
 
 const MobileNav: React.FC<MobileNavProps> = ({
   activeSection,
   handleSetActive,
+  isAdmin,
+  avatar,
+  isRegistered,
 }) => {
-  const [isRegistered, setRegistered] = useState(false);
-
-  useEffect(() => {
-    const checkRegistration = async () => {
-      try {
-        const result = await axios("/api/auth/verify");
-        if (result.status === 200) {
-          setRegistered(true);
-        }
-      } catch (error) {
-        const e = error as AxiosError;
-        console.error(e.response?.status);
-      }
-    };
-
-    checkRegistration();
-  }, []);
+  const logo = avatar
+    .split(" ")
+    .map((n) => n[0])
+    .join("");
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Codesandbox
-          size={32}
-          strokeWidth={1.25}
-          className="inline-flex md:hidden text-cyan-400 animate-pulse"
-        />
+        {!isRegistered ? (
+          <Codesandbox
+            size={32}
+            strokeWidth={1.25}
+            className="inline-flex md:hidden text-cyan-400 animate-pulse"
+          />
+        ) : (
+          <div
+            className={`grid md:hidden place-content-center text-white h-10 w-10 rounded-full ${
+              isAdmin ? "bg-violet-700" : "bg-cyan-600"
+            }`}
+          >
+            {logo}
+          </div>
+        )}
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="mt-7">
         <DropdownMenuItem>
-          <CustomMobLink
+          <CustomLink
             activeSection={activeSection}
             handleSetActive={handleSetActive}
             title="Home"
@@ -60,7 +60,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
           />
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <CustomMobLink
+          <CustomLink
             activeSection={activeSection}
             handleSetActive={handleSetActive}
             title="About"
@@ -68,7 +68,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
           />
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <CustomMobLink
+          <CustomLink
             activeSection={activeSection}
             handleSetActive={handleSetActive}
             title="Events"
@@ -76,7 +76,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
           />
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <CustomMobLink
+          <CustomLink
             activeSection={activeSection}
             handleSetActive={handleSetActive}
             title="Team"
@@ -90,7 +90,8 @@ const MobileNav: React.FC<MobileNavProps> = ({
               <Link href={"/profile"}>Profile</Link>
             </DropdownMenuItem>
             <DropdownMenuItem className="bg-cyan-500 text-black focus:bg-cyan-500 rounded-sm">
-              <button onClick={logOut}>Log Out</button>
+              {/* <button onClick={logOut}>Log Out</button> */}
+              <button>Log Out</button>
             </DropdownMenuItem>
           </>
         ) : (

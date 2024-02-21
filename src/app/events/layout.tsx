@@ -1,4 +1,4 @@
-import EventNav from "@/components/EventNav";
+import EventNav from "@/components/navbar/EventNavbar";
 
 const EventLayout = ({ children }: { children: React.ReactNode }) => {
   return (

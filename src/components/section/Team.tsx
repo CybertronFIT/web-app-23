@@ -1,36 +1,22 @@
-"use client";
-
 import Image from "next/image";
 import Person from "@/components/loader/Person";
-import React, { useState, useEffect } from "react";
-import { fetchAdminData } from "@/components/database/FetchData";
+import { fetchTeamData } from "@/server/fetch-data";
 
 const fac = [1, 2, 3, 4, 5];
 const mem = [1, 2, 3, 4, 5, 6, 7, 8];
 
-const Team = () => {
-  const [faculties, setFaculties] = useState<
-    { name: string; image: string; role: string }[] | null
-  >(null);
-  const [members, setMembers] = useState<
-    { name: string; image: string; role: string }[] | null
-  >(null);
+const Team = async () => {
+  let faculties = null;
+  let members = null;
 
-  useEffect(() => {
-    const fetchAdminData_ = async () => {
-      const faculties_data = await fetchAdminData("faculties");
-      setFaculties(faculties_data);
-      const coordinators_data = await fetchAdminData(
-        "members?role=Coordinator"
-      );
-      const designHeads_data = await fetchAdminData("members?role=Design Head");
-      if (coordinators_data && designHeads_data) {
-        setMembers(coordinators_data.concat(designHeads_data));
-      }
-    };
+  faculties = await fetchTeamData("/faculties");
 
-    fetchAdminData_();
-  }, []);
+  const coordinators_data = await fetchTeamData("/members?role=Coordinator");
+  const designHeads_data = await fetchTeamData("/members?role=Design Head");
+
+  if (coordinators_data && designHeads_data) {
+    members = coordinators_data.concat(designHeads_data);
+  }
 
   return (
     <section className="py-24 sm:py-32 xl:py-56 px-6 md:px-32" id="team">

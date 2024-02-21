@@ -1,39 +1,25 @@
-import { cn } from "@/lib/utils";
-import "@/styles/globals.css";
+import "../styles/globals.css";
 import type { Metadata } from "next";
+import Footer from "@/components/Footer";
 import { Audiowide } from "next/font/google";
-import { Footer } from "@/components/Footer";
-// import { AuthProvider } from "@/components/Provider";
 
-const inter = Audiowide({ weight: "400", subsets: ["latin"] });
+const audiowide = Audiowide({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Cybertron' 23",
+  title: "Cybertron' 24",
   description: "Official Website of Cybertron FIT",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning={true}
-      className={cn(
-        "bg-background text-foreground antialiased dark",
-        inter.className
-      )}
-    >
-      <body
-        suppressHydrationWarning={true}
-        className="min-h-screen bg-black scroll-smooth antialiased"
-      >
-        {/* <AuthProvider> */}
-          {children}
-          <Footer />
-        {/* </AuthProvider> */}
+    <html lang="en">
+      <body className={audiowide.className}>
+        {children}
+        <Footer />
       </body>
     </html>
   );

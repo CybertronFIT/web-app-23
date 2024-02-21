@@ -1,43 +1,21 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Person from "@/components/loader/Person";
-import { fetchAdminData } from "@/components/database/FetchData";
+import { fetchTeamData } from "@/server/fetch-data";
 
-const Page = () => {
-  const [convenor, setConvenor] = useState<{
-    name: string;
-    image: string;
-    role: string;
-    mobile: string;
-  } | null>(null);
-  const [coordinators, setCoordinator] = useState<
-    { name: string; image: string; role: string; mobile: string }[] | null
-  >(null);
+const Events = async () => {
+  let convenor = null;
+  let coordinators = null;
 
-  useEffect(() => {
-    const checkRegistration = async () => {
-      try {
-        const result1 = await fetchAdminData("faculties?role=Convenor");
-        const result2 = await fetchAdminData("members?role=Coordinator");
-        if (result1) {
-          setConvenor(result1[0]);
-        }
-        if (result2) {
-          setCoordinator(result2);
-        }
-      } catch (error) {
-        console.error("Recieved Error: ", error);
-      }
-    };
+  coordinators = await fetchTeamData("/members?role=Coordinator");
+  const result = await fetchTeamData("/faculties?role=Convenor");
 
-    checkRegistration();
-  }, []);
+  if (result) {
+    convenor = result[0];
+  }
 
   return (
     <main
-      id="hero"
+      id="event"
       className="min-h-screen p-4 py-8 md:p-24 2xl:px-56 text-left"
     >
       <section className="backdrop-blur-md px-8 py-6 pb-10 rounded-2xl mt-20 md:mt-16">
@@ -155,12 +133,7 @@ const Page = () => {
       </section>
 
       <div className="text-center my-8 md:my-12">
-        <a
-        id="btn"
-          className="mx-auto"
-          download
-          href="/Event_Brochure.pdf"
-        >
+        <a id="btn" className="mx-auto" download href="/Event_Brochure.pdf">
           Download pdf
         </a>
       </div>
@@ -168,4 +141,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Events;
