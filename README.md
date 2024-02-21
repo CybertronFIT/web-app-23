@@ -5,3 +5,5 @@
 <br>
 
 <p align="center"><strong>By</strong> - Future Institute of Technology @<strong>CSE ( IOT-CS & BCT )</strong> Department</p>
+
+<h4 align="center">Hosted at <a href="https://cybertron23-summer.vercel.app/">Vercel</a></h4>
