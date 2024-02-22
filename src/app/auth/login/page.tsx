@@ -112,7 +112,7 @@ const Page = () => {
             </div>
 
             {err && (
-              <div className="grid place-content-center h-5 rounded-md border border-red-600 text-red-600 text-xs font-mono -mt-6 mb-8">
+              <div className="grid place-content-center min-h-5 text-center rounded-md border border-red-600 text-red-600 text-xs font-mono -mt-6 mb-8">
                 {err}
               </div>
             )}
