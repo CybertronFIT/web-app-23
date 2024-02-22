@@ -50,7 +50,7 @@ const NavbarClient = (props: {
             handleSetActive={handleSetActive}
             title={section}
             to={section == "Home" ? "hero" : section.toLowerCase()}
-            className={""}
+            isSheet={false}
           />
         ))}
       </nav>
@@ -88,9 +88,7 @@ const NavbarClient = (props: {
                     handleSetActive={handleSetActive}
                     title={section}
                     to={section == "Home" ? "hero" : section.toLowerCase()}
-                    className={
-                      "md:scale-100 md:text-base mr-0 p-2 bg-gray-400/20 rounded-md text-center"
-                    }
+                    isSheet={true}
                   />
                 ))}
               </div>

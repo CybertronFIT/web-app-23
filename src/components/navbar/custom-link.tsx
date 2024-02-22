@@ -4,16 +4,16 @@ import { Link } from "react-scroll";
 interface CustomLinkProps {
   to: string;
   title: string;
-  className: string;
   activeSection: string; // The currently active section
+  isSheet: boolean;
   handleSetActive: (section: string) => void;
 }
 
 const CustomLink: FC<CustomLinkProps> = ({
   to,
   title,
-  className,
   activeSection,
+  isSheet,
   handleSetActive,
 }) => {
   return (
@@ -23,9 +23,13 @@ const CustomLink: FC<CustomLinkProps> = ({
       spy={true}
       smooth={true}
       onSetActive={handleSetActive}
-      className={`${
-        activeSection === to ? "text-cyan-500 md:scale-110" : "text-gray-200"
-      } md:cursor-pointer mr-5 md:hover:text-cyan-500 md:hover:scale-110 md:text-lg ${className}`}
+      className={`${activeSection === to ? "text-cyan-500" : "text-gray-200"} ${
+        isSheet
+          ? "p-2 bg-gray-400/20 rounded-md text-center"
+          : "mr-5 md:hover:scale-110 md:text-lg"
+      } ${
+        activeSection === to && !isSheet ? "scale-110" : ""
+      } md:cursor-pointer md:hover:text-cyan-500`}
     >
       {title}
     </Link>
