@@ -44,13 +44,12 @@ const Page = () => {
 
     // TODO: store data in global state
 
-    setLoading(false);
-
     if (status !== 200) {
       setErr(message);
       return;
     } 
-      
+    
+    setLoading(false);
     router.push("/profile");
   };
 
@@ -81,7 +80,7 @@ const Page = () => {
                   className="block peer rounded-md my-4 py-2.5 px-4 w-full text-sm text-slate-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-cyan-500 focus:outline-none focus:ring-0 focus:border-cyan-500 peer"
                   id="id"
                   name="id"
-                  placeholder=""
+                  placeholder="  "
                   required={true}
                 />
                 <label
