@@ -2,7 +2,7 @@
 
 import z from "zod";
 import Link from "next/link";
-import { AdminLogin } from "@/utils/login";
+import { AdminLogin } from "@/actions/login";
 import { Codesandbox } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";

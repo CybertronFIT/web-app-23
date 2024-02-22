@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import LogOut from "@/utils/logout";
+import LogOut from "@/actions/logout";
 import CustomLink from "./custom-link";
 import { Codesandbox } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
