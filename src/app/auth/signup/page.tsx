@@ -2,12 +2,14 @@
 
 import z from "zod";
 import Link from "next/link";
+import { sendMail } from "@/lib/mail";
 import { Codesandbox } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
-import Button from "@/components/ui/custom-button";
 import SignupParticipant from "@/utils/signup";
-
+import Button from "@/components/ui/custom-button";
+import { colleges, depts, years } from "@/lib/types";
+import getRegisterBody from "@/lib/templates/signup";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,33 +19,6 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import getRegisterBody from "@/lib/templates/signup";
-import { sendMail } from "@/lib/mail";
-
-const years = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
-const depts = [
-  "CSE",
-  "CSE (IOT & Cys)",
-  "CSE (AI & ML)",
-  "CSE (Data Science)",
-  "ECE",
-  "EE",
-  "ME",
-  "Civil",
-  "BCA",
-  "B.SC",
-  "Other",
-];
-const colleges = [
-  "FIT",
-  "FIEM",
-  "JIS",
-  "Techno Main",
-  "Techno Saltlake",
-  "GMIT",
-  "Bivekananda",
-  "Other",
-];
 
 const Signup = () => {
   const [err, setErr] = useState("");
