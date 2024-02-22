@@ -1,7 +1,9 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { verify } from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import PageLoader from "@/components/loader/Page";
 import { TOKEN_NAME, JWT_SECRET } from "@/components/constants/cookie";
 
 export const metadata: Metadata = {
@@ -35,7 +37,7 @@ const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
     redirect("/auth/admin/login");
   }
 
-  return <>{children}</>;
+  return <Suspense fallback={<PageLoader />}>{children}</Suspense>;
 };
 
 export default AdminLayout;
