@@ -54,3 +54,21 @@ export async function fetchTeamData(
 
   return results;
 }
+
+export async function fetchEventData(route: string) {
+  let result = null;
+  const apiURL = process.env.BACKEND_URL + route;
+  try {
+    const response = await axios(apiURL, {
+      headers: {
+        Authorization: process.env.REST_KEY!,
+      },
+    });
+    result = response.data;
+  } catch (error: any) {
+    const e = error as AxiosError;
+    console.error(e.response?.data);
+  }
+
+  return result;
+}
