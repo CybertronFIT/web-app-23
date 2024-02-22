@@ -65,7 +65,7 @@ const NavbarClient = (props: {
             />
           ) : (
             <div
-              className={`md:grid hidden place-content-center text-white h-10 w-10 rounded-full ${
+              className={`grid place-content-center text-white h-10 w-10 rounded-full ${
                 props.isAdmin ? "bg-indigo-600" : "bg-cyan-600"
               }`}
             >
@@ -73,9 +73,9 @@ const NavbarClient = (props: {
             </div>
           )}
         </SheetTrigger>
-        <SheetContent className="bg-[#0c0c0c9d] border-none z-50 backdrop-blur-md">
+        <SheetContent className="bg-[#0c0c0c9d] border-none z-50 backdrop-blur-md w-[70%]">
           <SheetHeader>
-            <SheetTitle className="text-center text-white text-2xl mt-20">
+            <SheetTitle className="text-center text-white text-xl md:text-2xl mt-20">
               {" "}
               {props.isRegistered ? props.avatar : "Cybertron"}
             </SheetTitle>
