@@ -6,7 +6,7 @@ import { Codesandbox } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import Button from "@/components/ui/custom-button";
-import { ParticipantLogin } from "@/actions/login";
+import { ParticipantLogin } from "@/server/actions/login";
 
 
 const Page = () => {

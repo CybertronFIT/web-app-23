@@ -6,7 +6,7 @@ import { sendMail } from "@/lib/mail";
 import { Codesandbox } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
-import SignupParticipant from "@/actions/signup";
+import SignupParticipant from "@/server/actions/signup";
 import Button from "@/components/ui/custom-button";
 import { colleges, depts, years } from "@/lib/types";
 import getRegisterBody from "@/lib/templates/signup";

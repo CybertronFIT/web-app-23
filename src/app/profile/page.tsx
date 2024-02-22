@@ -5,7 +5,7 @@ import { UserCircle2 } from "lucide-react";
 import { redirect } from "next/navigation";
 import { fetchUserData } from "@/server/fetch-data";
 import { TOKEN_NAME, JWT_SECRET } from "@/components/constants/cookie";
-import LogOut from "@/actions/logout";
+import LogOut from "@/server/actions/logout";
 
 const JSONToTable = ({ data }: { data: { [key: string]: any } }) => {
   const excludedKeys = ["image", "roll"];
