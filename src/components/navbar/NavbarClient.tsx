@@ -1,19 +1,22 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import MobileNav from "./mobile-nav";
-import CustomLink from "./custom-link";
-import { UserCircle } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuSeparator,
-  DropdownMenuLabel,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu";
+import { useState } from "react";
 import LogOut from "@/utils/logout";
+import CustomLink from "./custom-link";
+import { Codesandbox } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
+const sections = ["Home", "About", "Events", "Team"];
 
 const NavbarClient = (props: {
   isRegistered: boolean;
@@ -40,39 +43,25 @@ const NavbarClient = (props: {
         </span>
       </Link>
       <nav className="hidden md:flex gap-4">
-        <CustomLink
-          activeSection={activeSection}
-          handleSetActive={handleSetActive}
-          title="Home"
-          to="hero"
-        />
-        <CustomLink
-          activeSection={activeSection}
-          handleSetActive={handleSetActive}
-          title="About"
-          to="about"
-        />
-        <CustomLink
-          activeSection={activeSection}
-          handleSetActive={handleSetActive}
-          title="Events"
-          to="events"
-        />
-        <CustomLink
-          activeSection={activeSection}
-          handleSetActive={handleSetActive}
-          title="Team"
-          to="team"
-        />
+      {sections.map((section, index) => (
+                  <CustomLink
+                    key={index}
+                    activeSection={activeSection}
+                    handleSetActive={handleSetActive}
+                    title={section}
+                    to={section == "Home" ? "hero" : section.toLowerCase()}
+                    className={""}
+                  />
+                ))}
       </nav>
 
-      <DropdownMenu>
-        <DropdownMenuTrigger className="focus:outline-none">
+      <Sheet defaultOpen>
+        <SheetTrigger className="focus:outline-none">
           {!props.isRegistered ? (
-            <UserCircle
-              size={38}
+            <Codesandbox
+              size={32}
               strokeWidth={1.25}
-              className={`md:inline-flex hidden animate-pulse ${"text-cyan-400"}`}
+              className="inline-flex text-cyan-400 animate-pulse"
             />
           ) : (
             <div
@@ -83,43 +72,52 @@ const NavbarClient = (props: {
               {logo}
             </div>
           )}
-        </DropdownMenuTrigger>
-
-        <DropdownMenuContent>
-          <DropdownMenuLabel>
-            {props.isRegistered ? props.avatar : "My Account"}
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          {props.isRegistered ? (
-            <form>
-              <DropdownMenuItem className="my-3">
-                <a href={"/profile"}>Profile</a>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="bg-cyan-500 text-black focus:text-white focus:bg-cyan-500 rounded-sm">
-                {/* <button onClick={logOut}>Log Out</button> */}
-                <button formAction={LogOut}>Log Out</button>
-              </DropdownMenuItem>
-            </form>
-          ) : (
-            <>
-              <DropdownMenuItem className="my-3">
-                <a href={"/auth/login"}>Log In</a>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="bg-cyan-500 text-black focus:text-white focus:bg-cyan-500 rounded-sm">
-                <a href={"/auth/signup"}>Register</a>
-              </DropdownMenuItem>
-            </>
-          )}
-        </DropdownMenuContent>
-      </DropdownMenu>
-
-      <MobileNav
-        activeSection={activeSection}
-        handleSetActive={handleSetActive}
-        isRegistered={props.isRegistered}
-        isAdmin={props.isAdmin}
-        avatar={props.avatar}
-      />
+        </SheetTrigger>
+        <SheetContent className="bg-[#0c0c0ce5] border-none z-50">
+          <SheetHeader>
+            <SheetTitle className="text-center text-white text-2xl mt-20">
+              {" "}
+              {props.isRegistered ? props.avatar : "Cybertron"}
+            </SheetTitle>
+            <SheetDescription className="h-full px-6 md:px-12">
+              <div className="flex flex-col gap-4 justify-center mt-12">
+                {sections.map((section, index) => (
+                  <CustomLink
+                    key={index}
+                    activeSection={activeSection}
+                    handleSetActive={handleSetActive}
+                    title={section}
+                    to={section == "Home" ? "hero" : section.toLowerCase()}
+                    className={"md:scale-100 md:text-base mr-0 p-2 bg-gray-400/20 rounded-md text-center"}
+                  />
+                ))}
+              </div>
+              <Separator className="my-10 bg-gray-500" />
+              {props.isRegistered ? (
+                <form className="flex flex-col gap-6 text-center">
+                  <div className="border border-cyan-500 rounded-md p-2 text-cyan-500 hover:bg-cyan-300/10">
+                    <a href={"/profile"}>Profile</a>
+                  </div>
+                  <div className="bg-cyan-500 flex justify-center text-black hover:text-white hover:bg-cyan-500 rounded-md p-2">
+                    <button className="w-fit outline-none" formAction={LogOut}>
+                      Log Out
+                    </button>
+                  </div>
+                </form>
+              ) : (
+                <div className="flex flex-col gap-4 text-center">
+                  <div className="border border-cyan-500 rounded-md p-2 text-cyan-500 hover:bg-cyan-300/10">
+                    <a href={"/auth/login"}>Log In</a>
+                  </div>
+                  <div className="bg-cyan-500 text-white md:text-black hover:text-white hover:bg-cyan-500 rounded-md p-2">
+                    <a href={"/auth/signup"}>Register</a>
+                  </div>
+                </div>
+              )}
+            </SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 };

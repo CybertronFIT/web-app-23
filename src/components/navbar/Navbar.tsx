@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { verify } from "jsonwebtoken";
 import { cookies } from "next/headers";
 import NavbarClient from "./NavbarClient";
@@ -40,13 +41,15 @@ const Navbar = async () => {
   }
 
   return (
-    <header className="fixed w-full top-0 inset-x-0 h-fit z-50 p-4 md:px-32">
+    <header className="fixed w-full top-0 inset-x-0 h-fit z-30 p-4 md:px-32">
       <div className="px-5 py-4 md:px-10 md:py-5 2xl:py-8 bg-white/10 backdrop-blur-lg h-full max-w-7xl rounded-2xl mx-auto flex items-center justify-between">
-        <NavbarClient
-          isRegistered={isRegistered}
-          isAdmin={isAdmin}
-          avatar={name}
-        />
+        <Suspense>
+          <NavbarClient
+            isRegistered={isRegistered}
+            isAdmin={isAdmin}
+            avatar={name}
+          />
+        </Suspense>
       </div>
     </header>
   );
