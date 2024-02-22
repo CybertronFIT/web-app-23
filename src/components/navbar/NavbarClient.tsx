@@ -43,16 +43,16 @@ const NavbarClient = (props: {
         </span>
       </Link>
       <nav className="hidden md:flex gap-4">
-      {sections.map((section, index) => (
-                  <CustomLink
-                    key={index}
-                    activeSection={activeSection}
-                    handleSetActive={handleSetActive}
-                    title={section}
-                    to={section == "Home" ? "hero" : section.toLowerCase()}
-                    className={""}
-                  />
-                ))}
+        {sections.map((section, index) => (
+          <CustomLink
+            key={index}
+            activeSection={activeSection}
+            handleSetActive={handleSetActive}
+            title={section}
+            to={section == "Home" ? "hero" : section.toLowerCase()}
+            className={""}
+          />
+        ))}
       </nav>
 
       <Sheet defaultOpen>
@@ -73,7 +73,7 @@ const NavbarClient = (props: {
             </div>
           )}
         </SheetTrigger>
-        <SheetContent className="bg-[#0c0c0ce5] border-none z-50">
+        <SheetContent className="bg-[#0c0c0c9d] border-none z-50 backdrop-blur-md">
           <SheetHeader>
             <SheetTitle className="text-center text-white text-2xl mt-20">
               {" "}
@@ -88,7 +88,9 @@ const NavbarClient = (props: {
                     handleSetActive={handleSetActive}
                     title={section}
                     to={section == "Home" ? "hero" : section.toLowerCase()}
-                    className={"md:scale-100 md:text-base mr-0 p-2 bg-gray-400/20 rounded-md text-center"}
+                    className={
+                      "md:scale-100 md:text-base mr-0 p-2 bg-gray-400/20 rounded-md text-center"
+                    }
                   />
                 ))}
               </div>
