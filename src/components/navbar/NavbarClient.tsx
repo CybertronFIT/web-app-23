@@ -13,6 +13,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import LogOut from "@/utils/logout";
 
 const NavbarClient = (props: {
   isRegistered: boolean;
@@ -90,21 +91,21 @@ const NavbarClient = (props: {
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           {props.isRegistered ? (
-            <>
+            <form>
               <DropdownMenuItem className="my-3">
                 <a href={"/profile"}>Profile</a>
               </DropdownMenuItem>
-              <DropdownMenuItem className="bg-cyan-500 text-black focus:bg-cyan-500 rounded-sm">
+              <DropdownMenuItem className="bg-cyan-500 text-black focus:text-white focus:bg-cyan-500 rounded-sm">
                 {/* <button onClick={logOut}>Log Out</button> */}
-                <button>Log Out</button>
+                <button formAction={LogOut}>Log Out</button>
               </DropdownMenuItem>
-            </>
+            </form>
           ) : (
             <>
               <DropdownMenuItem className="my-3">
                 <a href={"/auth/login"}>Log In</a>
               </DropdownMenuItem>
-              <DropdownMenuItem className="bg-cyan-500 text-black focus:bg-cyan-500 rounded-sm">
+              <DropdownMenuItem className="bg-cyan-500 text-black focus:text-white focus:bg-cyan-500 rounded-sm">
                 <a href={"/auth/signup"}>Register</a>
               </DropdownMenuItem>
             </>

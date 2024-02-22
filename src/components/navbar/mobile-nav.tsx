@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Codesandbox } from "lucide-react";
 import CustomLink from "./custom-link";
+import LogOut from "@/utils/logout";
 import Link from "next/link";
 
 interface MobileNavProps {
@@ -85,21 +86,21 @@ const MobileNav: React.FC<MobileNavProps> = ({
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         {isRegistered ? (
-          <>
+          <form>
             <DropdownMenuItem className="my-3">
               <Link href={"/profile"}>Profile</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem className="bg-cyan-500 text-black focus:bg-cyan-500 rounded-sm">
+            <DropdownMenuItem className="bg-cyan-500 text-white focus:bg-cyan-500 rounded-sm">
               {/* <button onClick={logOut}>Log Out</button> */}
-              <button>Log Out</button>
+              <button formAction={LogOut}>Log Out</button>
             </DropdownMenuItem>
-          </>
+          </form>
         ) : (
           <>
             <DropdownMenuItem className="">
               <Link href={"/auth/login"}>Log In</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem className="bg-cyan-500 text-black focus:bg-cyan-500 rounded-sm">
+            <DropdownMenuItem className="bg-cyan-500 text-white focus:bg-cyan-500 rounded-sm">
               <Link href={"/auth/signup"}>Register</Link>
             </DropdownMenuItem>
           </>
