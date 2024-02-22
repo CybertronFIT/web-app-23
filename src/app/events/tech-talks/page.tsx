@@ -1,4 +1,10 @@
 import React from "react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Inauguration | Cybertron",
+  description: "Inauguration Event of Cybertron FIT",
+};
 
 const style = {
   background: "linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65)), url(/backgrounds/events/tech-talks.webp)",

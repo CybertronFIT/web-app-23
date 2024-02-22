@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import { verify } from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { TOKEN_NAME, JWT_SECRET } from "@/components/constants/cookie";
+
+export const metadata: Metadata = {
+  title: "Admin | Cybertron",
+  description: "Admin Panel of Cybertron FIT",
+};
 
 const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
   const cookieStore = cookies();
