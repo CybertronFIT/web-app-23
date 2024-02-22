@@ -5,8 +5,9 @@ import { UserCircle2 } from "lucide-react";
 import { redirect } from "next/navigation";
 import { fetchUserData } from "@/server/fetch-data";
 import { TOKEN_NAME, JWT_SECRET } from "@/components/constants/cookie";
+import LogOut from "@/utils/logout";
 
-const JSONToForm = ({ data }: { data: { [key: string]: any } }) => {
+const JSONToTable = ({ data }: { data: { [key: string]: any } }) => {
   const excludedKeys = ["image", "roll"];
 
   // Filtered keys
@@ -17,7 +18,7 @@ const JSONToForm = ({ data }: { data: { [key: string]: any } }) => {
   const filteredValues = filteredKeys.map((key) => data[key]);
 
   return (
-    <form className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       {filteredKeys.map((key, index) => (
         <div key={key} className="form-group flex flex-row gap-2 justify-between items-center text-black my-2">
           <label className="uppercase text-white text-sm md:text-md" htmlFor={key}>{key}</label>
@@ -31,7 +32,7 @@ const JSONToForm = ({ data }: { data: { [key: string]: any } }) => {
           />
         </div>
       ))}
-    </form>
+    </div>
   );
 };
 
@@ -90,14 +91,13 @@ const Profile = async () => {
         </p>
       </div>
 
-      <section className="md:min-w-[30vw] md:max-w-[38vw]">
+      <form className="md:min-w-[30vw] md:max-w-[38vw]">
         <div className="p-2 md:p-4 text-black  rounded-lg my-14 text-md text-center border-b-4 border-cyan-600">
-          <JSONToForm data={json} />
+          <JSONToTable data={json} />
         </div>
 
         <div className="flex flex-row justify-between mb-12 md:mb-20 px-6 md:px-10">
-          {/* <button id="btn" onClick={logOutUser} className="md:mr-16 mr-8"> */}
-          <button id="btn" className="">
+          <button id="btn" type="submit" formAction={LogOut} className="">
             Log Out
           </button>
 
@@ -111,7 +111,7 @@ const Profile = async () => {
             </a>
           )}
         </div>
-      </section>
+      </form>
     </main>
   );
 };

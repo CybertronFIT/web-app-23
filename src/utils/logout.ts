@@ -1,13 +1,13 @@
 "use server";
 
 import { cookies } from "next/headers";
-import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { TOKEN_NAME } from "@/components/constants/cookie";
 
 const LogOut = () => {
   cookies().delete(TOKEN_NAME);
 
-  revalidatePath("/");
+  redirect("/");
 };
 
 export default LogOut;
