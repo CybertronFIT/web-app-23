@@ -48,9 +48,10 @@ const Page = () => {
 
     if (status !== 200) {
       setErr(message);
-    } else {
-      router.push("/profile");
-    }
+      return;
+    } 
+      
+    router.push("/profile");
   };
 
   return (
