@@ -55,13 +55,13 @@ const NavbarClient = (props: {
         ))}
       </nav>
 
-      <Sheet defaultOpen>
+      <Sheet>
         <SheetTrigger className="focus:outline-none">
           {!props.isRegistered ? (
             <Codesandbox
               size={32}
               strokeWidth={1.25}
-              className="inline-flex text-cyan-400 animate-pulse"
+              className="inline-flex colorChange"
             />
           ) : (
             <div

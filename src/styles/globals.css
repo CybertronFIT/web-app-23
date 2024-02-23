@@ -178,3 +178,20 @@ h2 {
 #btn {
   @apply py-3 px-4 text-black bg-cyan-400 border-2 border-cyan-500 shadow-lg hover:text-white shadow-cyan-700 hover:shadow-cyan-500 rounded-xl
 }
+
+/* Navbar Button animations.css */
+@keyframes colorChange {
+  0% {
+    color: white;
+  }
+  50% {
+    color: cyan;
+  }
+  100% {
+    color: white;
+  }
+}
+
+.colorChange {
+  animation: colorChange 2s ease-in-out infinite;
+}

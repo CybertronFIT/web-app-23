@@ -97,16 +97,16 @@ const Profile = async () => {
         </div>
 
         <div className="flex flex-row justify-between mb-12 md:mb-20 px-6 md:px-10">
-          <button id="btn" type="submit" formAction={LogOut} className="">
+          <button type="submit" formAction={LogOut} className="p-2 px-3 text-black bg-cyan-400 border-2 border-cyan-500 shadow-lg hover:text-white shadow-cyan-700 hover:shadow-cyan-500 rounded-xl">
             Log Out
           </button>
 
           {isAdmin ? (
-            <a id="btn" className="" href="/admin/panel">
-              Control Panel
+            <a className="p-2 px-3 text-black bg-cyan-400 border-2 border-cyan-500 shadow-lg hover:text-white shadow-cyan-700 hover:shadow-cyan-500 rounded-xl" href="/admin/panel">
+              Panel
             </a>
           ) : (
-            <a id="btn" className="" href="/#events">
+            <a className="p-2 px-3 text-black bg-cyan-400 border-2 border-cyan-500 shadow-lg hover:text-white shadow-cyan-700 hover:shadow-cyan-500 rounded-xl" href="/#events">
               Events
             </a>
           )}

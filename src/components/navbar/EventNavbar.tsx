@@ -16,7 +16,7 @@ const EventNav = () => {
             </span>
           </Link>
 
-          <Codesandbox size={32} strokeWidth={1.25} />
+          <Codesandbox className="colorChange" size={32} strokeWidth={1.25} />
         </div>
       </div>
     </header>
